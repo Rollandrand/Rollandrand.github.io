@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>CV - ROLLAND</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { background: #f4f6fb; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; }
+    .cv-main { max-width: 900px; margin: 40px auto; background: #fff; border-radius: 18px; box-shadow: 0 4px 24px #dbeafe; display: flex; overflow: hidden; }
+    .cv-sidebar { background: linear-gradient(135deg, #3b82f6 60%, #60a5fa 100%); color: #fff; width: 280px; padding: 40px 30px; display: flex; flex-direction: column; align-items: center; }
+    .cv-sidebar img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid #fff; margin-bottom: 24px; }
+    .cv-sidebar h2 { margin: 0 0 10px 0; font-size: 1.5em; }
+    .cv-sidebar p { margin: 0 0 18px 0; font-size: 1em; opacity: 0.9; }
+    .cv-sidebar .contact { font-size: 0.95em; margin-top: 18px; }
+    .cv-sidebar .contact div { margin-bottom: 8px; }
+    .cv-content { flex: 1; padding: 40px 50px; }
+    .cv-content h1 { color: #3b82f6; font-size: 2.2em; margin-bottom: 8px; }
+    .cv-content .section { margin-bottom: 32px; }
+    .cv-content h3 { color: #2563eb; margin-bottom: 10px; font-size: 1.2em; }
+    .cv-content ul { padding-left: 18px; margin: 0; }
+    .cv-content li { margin-bottom: 8px; }
+    .skills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skills span { background: #e0e7ff; color: #1e293b; padding: 6px 14px; border-radius: 14px; font-size: 0.98em; }
+    @media (max-width: 700px) {
+      .cv-main { flex-direction: column; }
+      .cv-sidebar, .cv-content { width: 100%; padding: 30px 18px; }
+      .cv-content { padding-top: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cv-main">
+    <aside class="cv-sidebar">
+      <img src="C:\Users\HP\Desktop\TRAVAIL\PHOTO\Photo avatar pro Rolland.png" alt="Photo de profil">
+      <h2>Rolland</h2>
+      <p>CONSULTANT EN ORGANISATION </p>
+      <div class="contact">
+        <div>📧 rollandrandria102@gmail.com</div>
+        <div>📞 261 34 92 895 56</div>
+        <div>📍 Antsirabe, 110</div>
+      </div>
+    </aside>
+    <section class="cv-content">
+      <h1>À propos</h1>
+      <div class="section">
+        <p>
+          Passionné par le développement web, j’accompagne les entreprises dans la création de solutions digitales performantes et élégantes. Spécialisé en React, Node.js et UX/UI moderne.
+        </p>
+      </div>
+      <div class="section">
+        <h3>Expérience professionnelle</h3>
+        <ul>
+          <li>
+            <strong>Développeur Full Stack</strong> – Entreprise X (2021 - présent)<br>
+            Plateforme SaaS, React, Node.js, gestion d’équipe agile.
+          </li>
+          <li>
+            <strong>Développeur Front-End</strong> – Société Y (2018 - 2021)<br>
+            Interfaces responsives, Vue.js, optimisation SEO.
+          </li>
+        </ul>
+      </div>
+      <div class="section">
+        <h3>Formation</h3>
+        <ul>
+          <li>
+            <strong>Master Informatique</strong> – Université Z (2016 - 2018)
+          </li>
+          <li>
+            <strong>Licence Informatique</strong> – Université Z (2013 - 2016)
+          </li>
+        </ul>
+      </div>
+      <div class="section">
+        <h3>Compétences</h3>
+        <div class="skills">
+          <span>JavaScript</span>
+          <span>React</span>
+          <span>Node.js</span>
+          <span>HTML/CSS</span>
+          <span>Git</span>
+          <span>SQL</span>
+        </div>
+      </div>
+      <div class="section">
+        <h3>Langues</h3>
+        <ul>
+          <li>Français (Courant)</li>
+          <li>Anglais (Basse)</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
