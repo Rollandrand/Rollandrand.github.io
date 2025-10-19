@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Mes vidéos</title>
+  <style>
+    body {
+      background: url('C:\Users\HP\Desktop\TRAVAIL\ATELIER\BOOKARTISANS\LALAINA\Vague Japonaise.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #111827;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      color: #2563eb;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    @media (min-width: 700px) {
+      .video-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .video-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .video-card:hover {
+      box-shadow: 0 8px 24px rgba(37,99,235,0.15);
+    }
+    .video-thumb {
+      width: 200%;
+      height: 220px;
+      object-fit: cover;
+      background: #eee;
+    }
+    .video-content {
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .video-title {
+      font-size: 1.2rem;
+      color: #2563eb;
+      margin-bottom: 0.5rem;
+    }
+    .video-desc {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 1rem;
+    }
+    .video-btn {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      align-self: flex-start;
+      transition: background 0.2s;
+    }
+    .video-btn:hover {
+      background: #1d4ed8;
+    }
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.7);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal.active {
+      display: flex;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 12px;
+      max-width: 600px;
+      width: 90vw;
+      box-shadow: 0 8px 32px rgba(37,99,235,0.15);
+      position: relative;
+    }
+    .modal video {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .close-btn {
+      position: absolute;
+      top: 8px; right: 12px;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 32px; height: 32px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>MES VIDEOS</h1>
+  <div class="video-grid">
+    <!-- Carte vidéo 1 -->
+    <div class="video-card">
+      <img src="miniature1.jpg" alt="Miniature vidéo 1" class="video-thumb">
+      <div class="video-content">
+        <div class="video-title">Présentation</div>
+        <div class="video-desc">Passionné en management d'organisation, RoTheHitch propose plusieurs Lab pour développer votre efficacité, productivité et résultat.</div>
+        <button class="video-btn" onclick="openModal('video1')">Regarder</button>
+      </div>
+    </div>
+    <!-- Carte vidéo 2 -->
+    <div class="video-card">
+      <img src="C:\Users\HP\Desktop\DESIGN & MONTAGE VIDEO1\ICON FOR DESING\Rolland.jpeg" alt="Miniature vidéo 2" class="video-thumb">
+      <div class="video-content">
+        <div class="video-title">Management au service des managers</div>
+        <div class="video-desc">Découvrez comment le management peut transformer votre quotidien professionnel.</div>
+        <button class="video-btn" onclick="openModal('video2')">Regarder</button>
+      </div>
+    </div>
+    <!-- Ajoute d'autres cartes vidéos ici -->
+  </div>
+  <a href="index.html" class="link">← Retour à la page d'accueil</a>
+  <!-- ...le reste de ton contenu vidéo... -->
+
+  <!-- Modal pour lecture vidéo -->
+  <div id="modal" class="modal" onclick="closeModal(event)">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal(event)">&times;</button>
+      <video id="modal-video" controls></video>
+    </div>
+  </div>
+
+  <script>
+    // Chemins des vidéos
+    const videos = {
+      video1: "C:/Users/HP/Desktop/FILM & SERIE/VIDEO & SONG/MP4/Grève Tana.mp4",
+      video2: "chemin/vers/video2.mp4"
+      // Ajoute d'autres vidéos ici
+    };
+    function openModal(key) {
+      document.getElementById('modal').classList.add('active');
+      document.getElementById('modal-video').src = videos[key];
+      document.getElementById('modal-video').play();
+    }
+    function closeModal(e) {
+      if (e.target.classList.contains('modal') || e.target.classList.contains('close-btn')) {
+        document.getElementById('modal').classList.remove('active');
+        document.getElementById('modal-video').pause();
+        document.getElementById('modal-video').src = "";
+      }
+    }
+  </script>
+</body>
+</html>
