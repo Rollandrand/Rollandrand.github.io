@@ -15,15 +15,26 @@
     body {
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       background: url('imagedefond.jpg') no-repeat center center fixed;
-      background-size: cover;
       color: var(--text);
       margin: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
+      background: linear-gradient(270deg, #ff6a00, #ee0979, #2193b0, #6dd5ed);
+      background-size: 800% 800%;
+      animation: gradientMove 10s ease infinite;
+      transition: animation-duration 0.3s;
+
+    body:hover {
+      animation-duration: 3s;
     }
 
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
     .container {
       background: url('imagedefond.jpg') no-repeat center center;
       background-size: cover;
@@ -116,6 +127,7 @@
   </div>
 </body>
 </html>
+
 
 
 
