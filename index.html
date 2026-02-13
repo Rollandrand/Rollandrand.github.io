@@ -4,80 +4,62 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rolland RANDRIAMANAMPY | Liens officiels</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
-    :root {
-      --bg: #f8fafc;
-      --card: #ffffff;
-      --text: #111827;
-      --accent: #2563eb;
+    :root { --accent: #2563eb; }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: white;
+      background: 
+        linear-gradient(270deg, rgba(255,106,0,0.4), rgba(238,9,121,0.4), rgba(33,147,176,0.4), rgba(109,213,237,0.4)),
+        url('Imagedefond.jpg') no-repeat center fixed;
+      background-size: 800% 800%, cover;
+      background-blend-mode: overlay;
+      animation: gradientMove 10s ease infinite;
+      position: relative; /* pour étoiles */
+      overflow: hidden;
     }
 
-   body {
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  color: var(--text);
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-
-  /* ✅ Image + dégradé animé combinés */
-  background: 
-    linear-gradient(270deg, rgba(255,106,0,0.4), rgba(238,9,121,0.4), rgba(33,147,176,0.4), rgba(109,213,237,0.4)),
-    url('imagedefond.jpg') no-repeat center center fixed;
-  background-size: 800% 800%, cover;
-  background-blend-mode: overlay;
-
-  animation: gradientMove 10s ease infinite;
-  transition: animation-duration 0.3s;
-}
-
-/* ✅ Au survol : l'animation accélère */
-body:hover {
-  animation-duration: 3s;
-}
-
-/* ✅ Mouvement du dégradé */
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
     .container {
-      background: url('imagedefond.jpg') no-repeat center center;
-      background-size: cover;
-      padding: 1rem;
+      background: rgba(0,0,0,0.65);
+      padding: 1.5rem;
       border-radius: 20px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
       max-width: 400px;
       width: 90%;
       text-align: center;
+      z-index: 1;
+      position: relative;
     }
 
-    img.avatar {
-      width: 180px;
-      height: 180px;
+    .avatar {
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 1rem;
       border: 3px solid var(--accent);
     }
 
-    h1 {
-      font-size: 1.4rem;
-      margin-bottom: 0.3rem;
-      color: white; /* couleur que je souhaite */
-    }
+    h1 { font-size: 1.4rem; margin-bottom: 0.3rem; }
+    .bio { font-size: 0.95rem; margin-bottom: 1.5rem; }
 
-    p.bio {
-      font-size: 0.95rem;
-      color: White;
-      margin-bottom: 1.5rem;
-    }
-
-    a.link {
-      background: var(--accent);
+    .link {
       display: block;
       text-decoration: none;
       color: white;
@@ -87,72 +69,144 @@ body:hover {
       border-radius: 12px;
       font-weight: 600;
       transition: transform 0.2s ease, background 0.3s ease;
+      position: relative;
+      z-index: 1;
     }
 
-    a.link:hover {
+    .link i { margin-right: 10px; }
+
+    .link:hover {
       background: #f7cfc7;
-      transform: scale(1.02);
-    }
-    video{ border-radius: 12px; margin-top: 1rem;
-      body { font-family: sans-serif; background: #f8fafc; color: #111827; padding: 2rem; }
-    h1 { margin-bottom: 1rem; }
-    .video-list { display: flex; flex-direction: column; gap: 1.5rem; }
-    video { max-width: 100%; border-radius: 12px; }
+      transform: scale(1.05);
+      color: black;
     }
 
-    footer {
-      margin-top: 1rem;
-      font-size: 1.2rem;
-      font-weight: bold; 
-      padding: 1rem 0;
-      color: #555;
+    /* ============================= */
+    /* 🔥 SOCIAL ICONS ULTRA PREMIUM */
+    /* ============================= */
+    .social-icons {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      z-index: 1;
+      position: relative;
     }
 
-    p {
-      color: white; 
+    .social-icons a {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      text-decoration: none;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.4s ease;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 5px currentColor; }
+      50% { box-shadow: 0 0 20px currentColor; }
+      100% { box-shadow: 0 0 5px currentColor; }
+    }
+
+    .social-icons a.facebook { color: #1877F2; animation: pulseGlow 2s infinite; }
+    .social-icons a.instagram {
+      background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: pulseGlow 2s infinite;
+    }
+    .social-icons a.tiktok { color: #000; text-shadow: 2px 2px #25F4EE, -2px -2px #FE2C55; animation: pulseGlow 2s infinite; }
+    .social-icons a.linkedin { color: #0A66C2; animation: pulseGlow 2s infinite; }
+
+    .social-icons a:hover { transform: scale(1.3) rotate(10deg); background: rgba(255,255,255,0.15); }
+
+    footer { margin-top: 1.5rem; font-size: 0.85rem; color: #ddd; position: relative; z-index:1; }
+
+    /* ============================= */
+    /* ⭐ STARS EFFECT */
+    /* ============================= */
+    .star {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: gold;
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 1;
+      transform: scale(1);
+      animation: star-fade 0.8s forwards;
+      z-index: 0;
+    }
+
+    @keyframes star-fade {
+      0% { opacity: 1; transform: scale(1) translateY(0) rotate(0deg);}
+      100% { opacity: 0; transform: scale(0.5) translateY(-20px) rotate(360deg);}
     }
 
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <!-- Photo de profil -->
-    <img src="Rolland.jpeg" alt="Photo de profil" class="avatar">
 
-    <!-- Nom et description -->
-    <h1>Rolland RANDRIAMANAMPY</h1>
-    <p class="bio"> Passionné de management & business, voyage, art, sport </p>
+<script>
+// 📞 Bouton Appeler
+function callNumber() {
+  const phoneNumber = "+261349289556";
+  if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+    window.location.href = "tel:" + phoneNumber;
+  } else {
+    alert("Veuillez appeler ce numéro depuis votre téléphone : " + phoneNumber);
+  }
+}
 
-    <!-- Liens -->
-     <a href="https://www.tiktok.com/@rothehitch?_t=ZM-90KEP9JP9lg&_r=1" target="_blank" class="link">📸 TikTok</a>
-     <a href="https://m.me/ch/AbaD6wdhKwSs1CoM/?send_source=cm:copy_invite_link" target="_blank" class="link">💬 MES VOYAGES </a>
-    <a href="https://www.instagram.com/rollandrandriamanampy?igsh=MWZiM3lsYnIyeXowYw%3D%3D&utm_source=qr" target="_blank" class="link">📸 Instagram</a>
-    <a href="https://www.linkedin.com/in/rolland-randriamanampy-6a6606247?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" class="link">💼 LinkedIn</a>
-    <a href="" target="_blank" class="link">📄 Mes parcours en Management </a>
-     <!-- ...existing code... -->
-     <a href="videos.html" target="_blank" class="link">🎬 MadTinyMakiTravel</a>
-     <!-- ...existing code... -->
-    <footer>© 2025 RoTheHitch.Lab All rights reserved.</footer>
+// ✨ Effet étoiles au clic
+document.addEventListener('click', function(e){
+  for(let i=0; i<5; i++){ // plusieurs étoiles par clic
+    const star = document.createElement('div');
+    star.classList.add('star');
+    star.style.left = (e.clientX + Math.random()*20 -10) + 'px';
+    star.style.top = (e.clientY + Math.random()*20 -10) + 'px';
+    star.style.background = `hsl(${Math.random()*360}, 80%, 60%)`; // couleur aléatoire
+    document.body.appendChild(star);
+    setTimeout(()=> star.remove(), 800);
+  }
+});
+</script>
+
+<div class="container">
+  <img src="Photo de Rolland.png" alt="Photo de profil" class="avatar">
+
+  <h1>Rolland RANDRIAMANAMPY</h1>
+  <p class="bio">Passionné de management & business, voyage, art, sport</p>
+
+  <a href="#" class="link" onclick="callNumber()"><i class="fas fa-phone"></i> Appeler</a>
+  <a href="mailto:rollandrandria102@gmail.com" class="link"><i class="fas fa-envelope"></i> Email</a>
+  <a href="https://m.me/ch/AbaD6wdhKwSs1CoM/?send_source=cm:copy_invite_link" target="_blank" class="link"><i class="fas fa-plane"></i> Mes Voyages</a>
+  <a href="parcours.html" target="_blank" class="link"><i class="fas fa-briefcase"></i> Mes parcours en Management</a>
+  <a href="videos.html" target="_blank" class="link"><i class="fas fa-video"></i> MadTinyMakiTravel</a>
+
+  <!-- 🔥 SOCIAL ULTRA PREMIUM -->
+  <div class="social-icons">
+    <a href="https://www.facebook.com/share/1JQ3F6FyAy/?mibextid=wwXIfr" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/rollandrandriamanampy" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@rothehitch" target="_blank" class="tiktok"><i class="fab fa-tiktok"></i></a>
+    <a href="https://www.linkedin.com/in/rolland-randriamanampy-6a6606247" target="_blank" class="linkedin"><i class="fab fa-linkedin"></i></a>
   </div>
+
+  <footer>© 2026 RoTheHitch.Lab — All rights reserved</footer>
+</div>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
