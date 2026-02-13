@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Parcours Professionnel - Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .header {
+    position: relative;
+    min-height: 100vh;
+    background: url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2070") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    overflow: hidden;
+}
+        .header-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 900px;
+    padding: 40px;
+}
+        }
+
+        .header::before,
+        .header::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            filter: blur(80px);
+        }
+
+        .header::before {
+            content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 14, 36, 0.9),
+        rgba(0, 0, 0, 0.7)
+    );
+    backdrop-filter: blur(4px);
+    z-index: 1;
+}
+
+        .header::after {
+            width: 350px;
+            height: 350px;
+            background: #662900;
+            bottom: -100px;
+            left: -100px;
+            animation: float 15s infinite linear reverse;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            33% {
+                transform: translate(30px, -30px) rotate(120deg) scale(1.1);
+            }
+            66% {
+                transform: translate(-20px, 20px) rotate(240deg) scale(0.9);
+            }
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .header-icon {
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 24px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            animation: scaleIn 0.6s ease-out 0.2s both;
+        }
+
+        .header-icon svg {
+            width: 48px;
+            height: 48px;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        .header-subtitle {
+            font-size: 1.5rem;
+            color: #dbeafe;
+            margin-bottom: 32px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .header-stats {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 16px 32px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .stat-card svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .stat-number {
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #dbeafe;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Container */
+        .container {
+    position: relative;
+    margin-top: -100px;
+    background: white;
+    border-radius: 40px 40px 0 0;
+    padding: 100px 40px;
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.1);
+}
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 16px;
+        }
+
+        .section-title p {
+            font-size: 1.25rem;
+            color: #6b7280;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+        }
+
+        .experience-item {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 32px;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s ease-out;
+        }
+
+        .experience-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .timeline-marker {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .timeline-dot {
+            width: 16px;
+            height: 16px;
+            background: #2563eb;
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            transform: scale(0);
+            transition: transform 0.3s ease-out;
+        }
+
+        .experience-item.visible .timeline-dot {
+            transform: scale(1);
+        }
+
+        .timeline-line {
+            width: 2px;
+            flex: 1;
+            min-height: 120px;
+            background: linear-gradient(to bottom, #2563eb, #bfdbfe);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.6s ease-out 0.3s;
+        }
+
+        .experience-item.visible .timeline-line {
+            transform: scaleY(1);
+        }
+
+        .experience-item:last-child .timeline-line {
+            display: none;
+        }
+
+        .experience-card {
+            flex: 1;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-content {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .card-image {
+            width: 192px;
+            height: 192px;
+            border-radius: 12px;
+            overflow: hidden;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .experience-card:hover .card-image {
+            transform: scale(1.05);
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-details {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .card-company {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .card-company svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .arrow-icon {
+            color: #d1d5db;
+            transition: all 0.3s ease;
+        }
+
+        .experience-card:hover .arrow-icon {
+            transform: rotate(45deg) scale(1.2);
+            color: #2563eb;
+        }
+
+        .card-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 16px;
+        }
+
+        .card-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .card-meta-item svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .card-description {
+            color: #4b5563;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: #eff6ff;
+            color: #1d4ed8;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        .experience-item.visible .tag {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .tag:hover {
+            transform: scale(1.1);
+            background: #2563eb;
+            color: white;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            background: #f9fafb;
+            padding: 80px 24px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.4s ease;
+        }
+
+        .skill-card.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .skill-card:hover {
+            transform: scale(1.05) translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .skill-icon {
+            width: 48px;
+            height: 48px;
+            background: #eff6ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.6s ease;
+        }
+
+        .skill-card:hover .skill-icon {
+            transform: rotate(360deg);
+        }
+
+        .skill-icon svg {
+            width: 24px;
+            height: 24px;
+            color: #2563eb;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 50px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #2563eb);
+            border-radius: 50px;
+            width: 0;
+            transition: width 1s ease-out 0.2s;
+        }
+
+        .skill-card.visible .skill-progress {
+            width: var(--skill-level);
+        }
+
+        .skill-percentage {
+            text-align: right;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #2563eb;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #2563eb, #4f46e5);
+            color: white;
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            color: #dbeafe;
+            margin-bottom: 32px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #2563eb;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.05);
+        }
+
+        .btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .social-link {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .social-link svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: #9ca3af;
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .header-subtitle {
+                font-size: 1.125rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .experience-item {
+                gap: 16px;
+            }
+
+            .card-content {
+                flex-direction: column;
+            }
+
+            .card-image {
+                width: 100%;
+                height: 240px;
+            }
+
+            .cta-section h2 {
+                font-size: 1.875rem;
+            }
+        }
+    </style>
+</head>
+<body>
+     <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+            </div>
+            <h1>Mon Parcours Professionnel</h1>
+            <p class="header-subtitle">
+                Découvrez mon expérience en management et mes réalisations à travers mes différentes missions
+            </p>
+            <div class="header-stats">
+                <div class="stat-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                    </svg>
+                    <div>
+                        <div class="stat-number">4+</div>
+                        <div class="stat-label">Expériences</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                    <div>
+                        <div class="stat-number">8+</div>
+                        <div class="stat-label">Compétences</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Experience Timeline -->
+    <div class="container">
+        <div class="section-title">
+            <h2>Expériences Professionnelles</h2>
+            <p>Un voyage à travers mes différentes missions et accomplissements</p>
+        </div>
+
+        <div class="timeline">
+            <!-- Expérience 1 -->
+            <div class="experience-item">
+                <div class="timeline-marker">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-line"></div>
+                </div>
+                <div class="experience-card">
+                    <div class="card-content">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1765728617352-895327fcf036?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080" alt="Entreprise">
+                        </div>
+                        <div class="card-details">
+                            <div class="card-header">
+                                <div>
+                                    <h3 class="card-title">Directeur des Opérations</h3>
+                                    <div class="card-company">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                        </svg>
+                                        <span>GlobalCorp International</span>
+                                    </div>
+                                </div>
+                                <div class="arrow-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="card-meta">
+                                <div class="card-meta-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    <span>Janvier 2024 - Présent</span>
+                                </div>
+                                <div class="card-meta-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                    <span>Paris, France</span>
+                                </div>
+                            </div>
+                            <p class="card-description">
+                                Direction et optimisation des opérations de l'entreprise avec gestion d'une équipe de 50+ collaborateurs. Mise en place de stratégies d'amélioration continue et augmentation de la productivité de 35%. Leadership sur des projets de transformation digitale majeurs.
+                            </p>
+                            <div class="card-tags">
+                                <span class="tag">Leadership</span>
+                                <span class="tag">Gestion d'équipe</span>
+                                <span class="tag">Stratégie</span>
+                                <span class="tag">KPI</span>
+                                <span class="tag">Transformation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expérience 2 -->
+            <div class="experience-item">
+                <div class="timeline-marker">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-line"></div>
+                </div>
+                <div class="experience-card">
+                    <div class="card-content">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1670851050245-d861fd433d06?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080" alt="Entreprise">
+                        </div>
+                        <div class="card-details">
+                            <div class="card-header">
+                                <div>
+                                    <h3 class="card-title">Manager Commercial</h3>
+                                    <div class="card-company">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                        </svg>
+                                        <span>InnoSales Group</span>
+                                    </div>
+                                </div>
+                                <div class="arrow-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="card-meta">
+                                <div class="card-meta-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    <span>Mars 2022 - Décembre 2023</span>
+                                </div>
+                                <div class="card-meta-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                    <span>Lyon, France</span>
+                                </div>
+                            </div>
+                            <p class="card-description">
+                                Management d'une équipe commerciale de 15 personnes avec développement de stratégies de vente innovantes. Dépassement des objectifs trimestriels de 25% en moyenne. Formation et coaching des équipes pour améliorer les performances individuelles et collectives.
+                            </p>
+                            <div class="card-tags">
+                                <span class="tag">Ventes</span>
+                                <span class="tag">Coaching</span>
+                                <span class="tag">Négociation</span>
+                                <span class="tag">CRM</span>
+                                <span class="tag">Reporting</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expérience 3 -->
+            <div class="experience-item">
+                <div class="timeline-marker">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-line"></div>
+                </div>
+                <div class="experience-card">
+                    <div class="card-content">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1695891583421-3cbbf1c2e3bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080" alt="Entreprise">
+                        </div>
+                        <div class="card-details">
+                            <div class="card-header">
+                                <div>
+                                    <h3 class="card-title">Chef de Projet</h3>
+                                    <div class="card-company">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                        </svg>
+                                        <span>Conseil & Management SA</span>
+                                    </div>
+                                </div>
+                                <div class="arrow-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="card-meta">
+                                <div class="card-meta-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    <span>Septembre 2021 - Février 2022</span>
+                                </div>
+                                <div class="card-meta-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                    <span>Marseille, France</span>
+                                </div>
+                            </div>
+                            <p class="card-description">
+                                Stage de fin d'études en gestion de projet avec coordination d'équipes pluridisciplinaires. Pilotage de projets de restructuration organisationnelle. Apprentissage des méthodologies Agile et gestion des risques. Participation active aux comités de pilotage.
+                            </p>
+                            <div class="card-tags">
+                                <span class="tag">Gestion de projet</span>
+                                <span class="tag">Agile</span>
+                                <span class="tag">Coordination</span>
+                                <span class="tag">Planning</span>
+                                <span class="tag">Budget</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expérience 4 -->
+            <div class="experience-item">
+                <div class="timeline-marker">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-line"></div>
+                </div>
+                <div class="experience-card">
+                    <div class="card-content">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1709281847780-2b34c28853c0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080" alt="Entreprise">
+                        </div>
+                        <div class="card-details">
+                            <div class="card-header">
+                                <div>
+                                    <h3 class="card-title">Assistant Manager</h3>
+                                    <div class="card-company">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                        </svg>
+                                        <span>Business Solutions Ltd</span>
+                                    </div>
+                                </div>
+                                <div class="arrow-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="card-meta">
+                                <div class="card-meta-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    <span>Juin 2021 - Août 2021</span>
+                                </div>
+                                <div class="card-meta-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                    <span>Nice, France</span>
+                                </div>
+                            </div>
+                            <p class="card-description">
+                                Premier stage en management avec assistance à la gestion quotidienne d'une équipe. Support dans la planification des activités et le suivi des indicateurs de performance. Découverte des outils de gestion et des processus d'amélioration continue. Participation aux réunions stratégiques.
+                            </p>
+                            <div class="card-tags">
+                                <span class="tag">Organisation</span>
+                                <span class="tag">Communication</span>
+                                <span class="tag">Reporting</span>
+                                <span class="tag">Excel</span>
+                                <span class="tag">Analyse</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mes Compétences</h2>
+                <p>Un aperçu de mes principales compétences en management</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="skill-name">Leadership d'équipe</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--skill-level: 95%"></div>
+                    </div>
+                    <div class="skill-percentage">95%</div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                        </div>
+                        <h3 class="skill-name">Gestion de projet</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--skill-level: 90%"></div>
+                    </div>
+                    <div class="skill-percentage">90%</div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+                            </svg>
+                        </div>
+                        <h3 class="skill-name">Stratégie d'entreprise</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--skill-level: 88%"></div>
+                    </div>
+                    <div class="skill-percentage">88%</div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                            </svg>
+                        </div>
+                        <h3 class="skill-name">Communication</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--skill-level: 85%"></div>
+                    </div>
+                    <div class="skill-percentage">85%</div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="skill-name">Gestion budgétaire</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--skill-level: 82%"></div>
+                    </div>
+                    <div class="skill-percentage">82%</div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <h3 class="skill-name">Résolution de problèmes</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--skill-level: 80%"></div>
+                    </div>
+                    <div class="skill-percentage">80%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Intéressé par mon profil ?</h2>
+        <p>
+            N'hésitez pas à me contacter pour discuter de vos projets ou opportunités
+        </p>
+
+        <div class="cta-buttons">
+            <button class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Télécharger mon CV
+            </button>
+            <button class="btn btn-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                Me contacter
+            </button>
+        </div>
+
+        <div class="social-links">
+            <a href="#" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+            </a>
+            <a href="#" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+            </a>
+            <a href="#" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 -RoTheHitch.Lab Tous droits réservés</p>
+        <p style="font-size: 0.875rem; margin-top: 8px;"> Innovation et créativité 🔬</p>
+    </footer>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        // Observe experience items
+        document.querySelectorAll('.experience-item').forEach(item => {
+            observer.observe(item);
+        });
+
+        // Observe skill cards
+        document.querySelectorAll('.skill-card').forEach((card, index) => {
+            setTimeout(() => {
+                observer.observe(card);
+            }, index * 50);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
