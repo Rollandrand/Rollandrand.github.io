@@ -521,6 +521,9 @@ body.light-mode .hero h1 {
   margin-bottom: 50px;
   position: relative;
   opacity: 0;
+}
+
+.timeline-item.animate {
   animation: fadeInTimeline 0.8s ease-out forwards;
 }
 
@@ -529,9 +532,9 @@ body.light-mode .hero h1 {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.timeline-item:nth-child(1) { animation-delay: 0.2s; }
-.timeline-item:nth-child(2) { animation-delay: 0.4s; }
-.timeline-item:nth-child(3) { animation-delay: 0.6s; }
+.timeline-item.animate:nth-child(1) { animation-delay: 0.2s; }
+.timeline-item.animate:nth-child(2) { animation-delay: 0.4s; }
+.timeline-item.animate:nth-child(3) { animation-delay: 0.6s; }
 
 .timeline-item:nth-child(odd) .timeline-content {
   margin-left: 0;
@@ -766,10 +769,10 @@ body.light-mode .hero h1 {
 .progress-fill {
   height: 100%;
   border-radius: 10px;
-  transition: width 0s ease;
   background: linear-gradient(90deg, #C5FF00, #81D4FA);
   box-shadow: 0 0 10px rgba(197, 255, 0, 0.6), inset 0 0 5px rgba(255, 255, 255, 0.3);
   width: 0;
+  opacity: 0;
 }
 
 .progress-fill.animated {
@@ -777,8 +780,14 @@ body.light-mode .hero h1 {
 }
 
 @keyframes progressAnimation {
-  from { width: 0; }
-  to { width: var(--progress-width); }
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: var(--progress-width);
+    opacity: 1;
+  }
 }
 
 .competence-card:nth-child(2) .progress-fill {
@@ -820,14 +829,17 @@ body.light-mode .hero h1 {
   text-align: center;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(197, 255, 0, 0.05);
   transition: all 0.3s;
-  animation: fadeInScale 0.8s ease-out;
-  animation-fill-mode: both;
+  opacity: 0;
 }
 
-.interet-card:nth-child(1) { animation-delay: 0.1s; }
-.interet-card:nth-child(2) { animation-delay: 0.2s; }
-.interet-card:nth-child(3) { animation-delay: 0.3s; }
-.interet-card:nth-child(4) { animation-delay: 0.4s; }
+.interet-card.animate {
+  animation: fadeInScale 0.8s ease-out forwards;
+}
+
+.interet-card.animate:nth-child(1) { animation-delay: 0.1s; }
+.interet-card.animate:nth-child(2) { animation-delay: 0.2s; }
+.interet-card.animate:nth-child(3) { animation-delay: 0.3s; }
+.interet-card.animate:nth-child(4) { animation-delay: 0.4s; }
 
 .interet-card:hover {
   transform: translateY(-10px);
@@ -888,7 +900,11 @@ body.light-mode .hero h1 {
   margin: 0 auto;
   border: 2px solid rgba(197, 255, 0, 0.3);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(197, 255, 0, 0.05);
-  animation: slideInUp 0.8s ease-out;
+  opacity: 0;
+}
+
+.contact-card.animate {
+  animation: slideInUp 0.8s ease-out forwards;
 }
 
 .contact-card p {
@@ -1004,23 +1020,23 @@ footer .tagline {
   <div class="logo">Votre Nom</div>
 
   <ul class="nav-links">
-    <li><a href="#">Accueil</a></li>
-    <li><a href="#">Parcours</a></li>
-    <li><a href="#">Compétences</a></li>
-    <li><a href="#">Contact</a></li>
+    <li><a href="#hero">Accueil</a></li>
+    <li><a href="#parcours">Parcours</a></li>
+    <li><a href="#competences">Compétences</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 
   <div class="nav-controls">
     <button class="theme-toggle" onclick="toggleTheme()" title="Basculer le thème">
       <i class="fas fa-moon"></i>
     </button>
-    <a href="#" class="contact-btn">Me Contacter</a>
+    <a href="#contact" class="contact-btn">Me Contacter</a>
   </div>
 </nav>
 
 <!-- ================= HERO ================= -->
 
-<section class="hero">
+<section class="hero" id="hero">
 
   <div class="avatar-circle">
     <img src="Rolland.jpeg" alt="Votre Photo">
@@ -1039,7 +1055,7 @@ footer .tagline {
   </p>
 
   <div class="hero-buttons">
-    <a href="#" class="btn-primary">
+    <a href="#parcours" class="btn-primary">
       <i class="fas fa-compass"></i> Découvrir mon parcours
     </a>
 
@@ -1058,7 +1074,7 @@ footer .tagline {
 
 <!-- ================= PARCOURS SECTION ================= -->
 
-<section class="parcours-section">
+<section class="parcours-section" id="parcours">
   <h2 class="section-title">Mon Parcours</h2>
   <p class="section-subtitle">Formation académique et expériences professionnelles</p>
 
@@ -1167,7 +1183,7 @@ J’ai également géré la vente des œuvres de marqueterie d’art ainsi que l
 
 <!-- ================= COMPETENCES SECTION ================= -->
 
-<section class="competences-section">
+<section class="competences-section" id="competences">
   <h2 class="section-title">Mes Compétences</h2>
   <p class="section-subtitle">Savoir-faire techniques et compétences managériales</p>
 
@@ -1327,7 +1343,7 @@ J’ai également géré la vente des œuvres de marqueterie d’art ainsi que l
       <div class="competence-item">
         <label>Esprit d'Initiative <span>85%</span></label>
         <div class="progress-bar">
-          <div class="progress-fill" style="width: 85%;"></div>
+          <div class="progress-fill" data-width="85%"></div>
         </div>
       </div>
     </div>
@@ -1336,7 +1352,7 @@ J’ai également géré la vente des œuvres de marqueterie d’art ainsi que l
 
 <!-- ================= CENTRES D'INTERET ================= -->
 
-<section class="interets-section">
+<section class="interets-section" id="interets">
   <h2 class="section-title">Centres d'Intérêt</h2>
   <p class="section-subtitle">Passions et veille professionnelle</p>
 
@@ -1377,7 +1393,7 @@ J’ai également géré la vente des œuvres de marqueterie d’art ainsi que l
 
 <!-- ================= CONTACT SECTION ================= -->
 
-<section class="contact-section">
+<section class="contact-section" id="contact">
   <div class="contact-card">
     <p>Vous souhaitez collaborer ou en savoir plus sur mon parcours ?</p>
     <button class="contact-btn" onclick="scriptEmail()">
@@ -1394,6 +1410,45 @@ J’ai également géré la vente des œuvres de marqueterie d’art ainsi que l
 </footer>
 
 <script>
+// ============ TOGGLE THEME (Mode Clair/Sombre) ============
+function toggleTheme() {
+  const body = document.body;
+  const isLightMode = body.classList.contains('light-mode');
+  const themeToggleBtn = document.querySelector('.theme-toggle i');
+  
+  if (isLightMode) {
+    // Passer au mode sombre
+    body.classList.remove('light-mode');
+    localStorage.setItem('theme', 'dark');
+    if (themeToggleBtn) {
+      themeToggleBtn.classList.remove('fa-sun');
+      themeToggleBtn.classList.add('fa-moon');
+    }
+  } else {
+    // Passer au mode clair
+    body.classList.add('light-mode');
+    localStorage.setItem('theme', 'light');
+    if (themeToggleBtn) {
+      themeToggleBtn.classList.remove('fa-moon');
+      themeToggleBtn.classList.add('fa-sun');
+    }
+  }
+}
+
+// Charger le thème sauvegardé au démarrage
+window.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  const themeToggleBtn = document.querySelector('.theme-toggle i');
+  
+  if (savedTheme === 'light') {
+    document.body.classList.add('light-mode');
+    if (themeToggleBtn) {
+      themeToggleBtn.classList.remove('fa-moon');
+      themeToggleBtn.classList.add('fa-sun');
+    }
+  }
+});
+
 // ============ ANIMATIONS AU SCROLL ============
 const observerOptions = {
   threshold: 0.1,
@@ -1409,11 +1464,31 @@ const observer = new IntersectionObserver((entries) => {
       if (entry.target.classList.contains('competence-card')) {
         const progressFills = entry.target.querySelectorAll('.progress-fill');
         progressFills.forEach((fill, index) => {
+          // Retirer la classe animated avant de la rajouter (pour réinitialiser l'animation)
+          fill.classList.remove('animated');
+          // Forcer le navigateur à reconnaître le changement
+          void fill.offsetWidth;
+          
           setTimeout(() => {
             const width = fill.getAttribute('data-width');
+            // Définir la variable CSS pour l'animation
+            fill.style.setProperty('--progress-width', width);
             fill.style.width = width;
             fill.classList.add('animated');
           }, index * 100);
+        });
+      }
+    } else {
+      // Quand l'élément n'est plus visible
+      entry.target.classList.remove('animate');
+      
+      // Réinitialiser les barres de progression
+      if (entry.target.classList.contains('competence-card')) {
+        const progressFills = entry.target.querySelectorAll('.progress-fill');
+        progressFills.forEach((fill) => {
+          fill.classList.remove('animated');
+          fill.style.width = '0';
+          fill.style.opacity = '0';
         });
       }
     }
@@ -1459,6 +1534,7 @@ window.addEventListener('scroll', () => {
   }
 });
 </script>
+
 
 
 
