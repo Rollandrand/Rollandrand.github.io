@@ -1116,10 +1116,31 @@ body.light-mode .school-link:hover {
 /* ================= FOOTER ================= */
 
 footer {
-  background: linear-gradient(180deg, #0a0e27 0%, #1a1a2e 100%);
+  position: relative;
   color: #B3E5FC;
   padding: 40px 20px;
-  border-top: 2px solid rgba(197, 255, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  background-image: url('New joye.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+footer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 14, 39, 0.5);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  pointer-events: none;
+}
+
+.footer-content,
+.footer-bottom {
+  position: relative;
+  z-index: 1;
 }
 
 .footer-content {
@@ -1132,7 +1153,7 @@ footer {
 
 .footer-section {
   flex: 1;
-  min-width: 200px;
+  min-width: 220px;
   margin-bottom: 20px;
 }
 
@@ -1176,7 +1197,7 @@ footer {
 
 .footer-bottom {
   text-align: center;
-  border-top: 1px solid rgba(197, 255, 0, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
   padding-top: 20px;
 }
 
