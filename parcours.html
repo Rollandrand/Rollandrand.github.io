@@ -1118,24 +1118,76 @@ body.light-mode .school-link:hover {
 footer {
   background: linear-gradient(180deg, #0a0e27 0%, #1a1a2e 100%);
   color: #B3E5FC;
-  text-align: center;
   padding: 40px 20px;
   border-top: 2px solid rgba(197, 255, 0, 0.2);
 }
 
-footer p {
-  margin: 0;
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto 30px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 20px;
+}
+
+.footer-section h3 {
+  color: #FFE97A;
+  font-size: 18px;
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px rgba(255, 233, 122, 0.3);
+}
+
+.footer-section p {
+  margin: 5px 0;
   font-size: 14px;
 }
 
-footer .copyright {
+.footer-section a {
+  color: #81D4FA;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #C5FF00;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  color: #B3E5FC;
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #C5FF00;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(197, 255, 0, 0.1);
+  padding-top: 20px;
+}
+
+.footer-bottom .copyright {
   font-weight: 600;
   margin-bottom: 8px;
   color: #FFE97A;
   text-shadow: 0 0 10px rgba(255, 233, 122, 0.3);
 }
 
-footer .tagline {
+.footer-bottom .tagline {
   color: #81D4FA;
   font-size: 13px;
 }
@@ -1323,6 +1375,19 @@ footer .tagline {
   /* Footer */
   footer {
     padding: 25px 12px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
   }
 
   /* Buttons */
@@ -1872,8 +1937,35 @@ J’ai également géré la vente des œuvres de marqueterie d’art ainsi que l
 <!-- ================= FOOTER ================= -->
 
 <footer>
-  <p class="copyright">© 2026 RoTheHitch.Lab Tous droits réservés.</p>
-  <p class="tagline">DESIGNED BY ME</p>
+  <div class="footer-content">
+    <div class="footer-section contact-info">
+      <h3>Contact</h3>
+      <p><i class="fas fa-envelope"></i> rollandrandria102@gmail.com</p>
+      <p><i class="fas fa-phone"></i> +261 34 92 895 56 / +261 38 03 038 038</p>
+      <p><i class="fas fa-map-marker-alt"></i> Lot IV J 27 Ambohibary, Ambositra 306, Madagascar</p>
+    </div>
+    <div class="footer-section social-links">
+      <h3>Suivez-moi</h3>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/share/1JQ3F6FyAy/?mibextid=wwXIfr" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/rollandrandriamanampy" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@rothehitch" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.linkedin.com/in/rolland-randriamanampy-6a6606247" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://strava.app.link/f7v9Wbh9E0b" target="_blank" aria-label="Strava"><i class="fab fa-strava"></i></a>
+      </div>
+    </div>
+    <div class="footer-section legal">
+      <h3>Informations utiles</h3>
+      <p><a href="#contact">Me contacter</a></p>
+      <p><a href="#parcours">Parcours & Réalisations</a></p>
+      <p><a href="#">Télécharger mon CV</a></p>
+      <p><a href="#">Mentions légales</a></p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="copyright">© 2026 RoTheHitch.Lab Tous droits réservés.</p>
+    <p class="tagline">DESIGNED BY ME</p>
+  </div>
 </footer>
 
 <script>
@@ -2013,7 +2105,6 @@ window.addEventListener('scroll', () => {
   }
 });
 </script>
-
 
 
 
