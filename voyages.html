@@ -30,20 +30,14 @@
       justify-content: center;
       color: white;
       background: 
-        linear-gradient(270deg, rgba(255,106,0,0.4), rgba(238,9,121,0.4), rgba(33,147,176,0.4), rgba(109,213,237,0.4)),
-        url('Imagedefond.jpg') no-repeat center center;
-      background-attachment: scroll;
-      background-size: 800% 800%, cover;
-      background-blend-mode: overlay;
-      animation: gradientMove 12s ease infinite;
+        radial-gradient(ellipse 70% 50% at 50% 100%, rgba(124, 58, 237, 0.25) 0%, transparent 70%),
+        radial-gradient(circle at 85% 25%, rgba(254, 215, 170, 0.35) 0%, transparent 50%),
+        linear-gradient(160deg, rgba(248, 246, 252, 0.35) 0%, rgba(222, 212, 239, 0.45) 100%),
+        url('dreamy_bg.jpg') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
       position: relative;
       padding: 1.5rem;
-    }
-
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
     }
 
     .container {

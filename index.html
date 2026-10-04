@@ -12,176 +12,807 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    :root { --accent: #2563eb; }
+    :root {
+      --bg-studio: #f1ecf7;
+      --card-white: #ffffff;
+      --teal-primary: #059669;
+      --teal-light: #10b981;
+      --orange-primary: #ff6b00;
+      --orange-light: #f97316;
+      --violet-primary: #7c3aed;
+      --violet-light: #a855f7;
+      --blue-primary: #2563eb;
+      --blue-light: #38bdf8;
+      --text-main: #1e1b4b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       margin: 0;
+      padding: 40px 16px;
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
-      color: white;
+      color: var(--text-main);
       background: 
-        linear-gradient(270deg, rgba(255,106,0,0.4), rgba(238,9,121,0.4), rgba(33,147,176,0.4), rgba(109,213,237,0.4)),
-        url('Imagedefond.jpg') no-repeat center center;
-      background-attachment: scroll;
-      background-size: 800% 800%, cover;
-      background-blend-mode: overlay;
-      animation: gradientMove 10s ease infinite;
-      position: relative; /* pour étoiles */
-      overflow-x: ;
-    }
-
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .container {
-      background: rgba(0,0,0,0.65);
-      padding: 1.5rem;
-      border-radius: 20px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-      max-width: 400px;
-      width: 90%;
-      text-align: center;
-      z-index: 1;
+        radial-gradient(ellipse 70% 50% at 50% 100%, rgba(124, 58, 237, 0.22) 0%, transparent 70%),
+        radial-gradient(circle at 85% 25%, rgba(254, 215, 170, 0.3) 0%, transparent 50%),
+        linear-gradient(160deg, rgba(248, 246, 252, 0.4) 0%, rgba(222, 212, 239, 0.5) 100%),
+        url('dreamy_bg.jpg') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
       position: relative;
+      overflow-x: hidden;
+    }
+
+    /* ========================================= */
+    /* 🫧 3D SUSPENDED GLASS & EMERALD BUBBLES   */
+    /* ========================================= */
+    .bubble-scene {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* Emerald liquid core inside translucent glass bubble (like the photo) */
+    .bubble-emerald-large {
+      width: 76px;
+      height: 76px;
+      top: 14%;
+      right: calc(50% - 280px);
+      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.2) 40%, rgba(16, 185, 129, 0.8) 75%, rgba(6, 95, 70, 0.95) 100%);
+      box-shadow: 
+        0 20px 35px rgba(5, 150, 105, 0.35),
+        inset 0 3px 6px rgba(255, 255, 255, 0.9),
+        inset 0 -6px 12px rgba(6, 78, 59, 0.6);
+      animation: floatSmooth 7s ease-in-out infinite alternate;
+    }
+
+    .bubble-emerald-medium {
+      width: 44px;
+      height: 44px;
+      top: 50%;
+      right: calc(50% - 260px);
+      background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.9), rgba(52, 211, 153, 0.7) 60%, rgba(6, 95, 70, 0.9) 100%);
+      box-shadow: 0 12px 25px rgba(5, 150, 105, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.85);
+      animation: floatSmooth 5.5s ease-in-out infinite alternate-reverse;
+    }
+
+    .bubble-emerald-small {
+      width: 26px;
+      height: 26px;
+      bottom: 12%;
+      left: calc(50% - 240px);
+      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(16, 185, 129, 0.85) 80%);
+      box-shadow: 0 8px 18px rgba(5, 150, 105, 0.3);
+      animation: floatSmooth 6s ease-in-out infinite alternate;
+    }
+
+    .bubble-glass-left {
+      width: 58px;
+      height: 58px;
+      top: 58%;
+      left: calc(50% - 275px);
+      background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.3) 40%, rgba(20, 184, 166, 0.5) 80%, rgba(13, 148, 136, 0.8) 100%);
+      box-shadow: 0 16px 30px rgba(13, 148, 136, 0.25), inset 0 2px 5px rgba(255, 255, 255, 0.9);
+      animation: floatSmooth 8s ease-in-out infinite alternate-reverse;
+    }
+
+    .bubble-pearl-tiny {
+      width: 16px;
+      height: 16px;
+      top: 22%;
+      left: calc(50% - 220px);
+      background: radial-gradient(circle at 30% 30%, #ffffff, #e2e8f0 70%, #cbd5e1 100%);
+      box-shadow: 0 6px 12px rgba(100, 116, 139, 0.25);
+      animation: floatSmooth 4.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatSmooth {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-18px) rotate(8deg); }
+    }
+
+    /* ========================================= */
+    /* 🌊 3D PEARL METALLIC LIQUID SPLASH BASE   */
+    /* ========================================= */
+    .pearl-splash-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+    }
+
+    /* Fluid metallic pearl splash backing as seen in the photo */
+    .pearl-splash-backdrop {
+      position: absolute;
+      inset: -30px -25px -35px -25px;
+      background: 
+        radial-gradient(circle at 75% 20%, rgba(255, 255, 255, 0.9) 0%, rgba(241, 245, 249, 0.85) 45%, rgba(203, 213, 225, 0.75) 100%);
+      border-radius: 65px 75px 80px 70px / 75px 65px 70px 80px;
+      box-shadow: 
+        0 40px 90px -20px rgba(100, 116, 139, 0.4),
+        0 20px 40px -10px rgba(139, 92, 246, 0.25),
+        inset 0 3px 6px #ffffff,
+        inset 0 -6px 15px rgba(148, 163, 184, 0.35);
+      filter: drop-shadow(0 15px 30px rgba(160, 174, 192, 0.35));
+      border: 3px solid rgba(255, 255, 255, 0.9);
+      z-index: 0;
+      animation: splashPulse 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes splashPulse {
+      0% { border-radius: 65px 75px 80px 70px / 75px 65px 70px 80px; transform: scale(1); }
+      50% { border-radius: 72px 68px 75px 82px / 68px 78px 82px 65px; transform: scale(1.01) rotate(0.4deg); }
+      100% { border-radius: 78px 65px 70px 80px / 80px 70px 65px 75px; transform: scale(1); }
+    }
+
+    /* ========================================= */
+    /* 🏛️ MAIN 3D CLAY/GLASS SLATE CONTAINER     */
+    /* ========================================= */
+    .container {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      padding: 2.2rem 1.8rem 1.8rem;
+      border-radius: 38px;
+      box-shadow: 
+        0 30px 70px -15px rgba(51, 65, 85, 0.2),
+        0 15px 30px -10px rgba(124, 58, 237, 0.12),
+        inset 0 2px 4px #ffffff,
+        inset 0 -2px 6px rgba(0, 0, 0, 0.03);
+      border: 2px solid rgba(255, 255, 255, 0.95);
+      width: 100%;
+      text-align: center;
+      z-index: 2;
+      position: relative;
+    }
+
+    /* ========================================= */
+    /* 👤 TACTILE 3D HEADER & IDENTITY           */
+    /* ========================================= */
+    .top-deco-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.4rem;
+      gap: 12px;
+    }
+
+    /* Left Identity Badge */
+    .identity-card {
+      background: linear-gradient(135deg, #ffffff, #f8fafc);
+      padding: 10px 16px;
+      border-radius: 20px;
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      box-shadow: 
+        0 8px 20px rgba(100, 116, 139, 0.08),
+        inset 0 1px 2px #ffffff;
+      text-align: left;
+      flex: 1;
+    }
+
+    .identity-tag {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--teal-primary);
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .identity-tag::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal-light);
+    }
+
+    .identity-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin: 0;
+      letter-spacing: -0.3px;
+    }
+
+    /* Right 3D Pill Accent (like the orange & lilac pills in photo) */
+    .accent-3d-capsule {
+      background: linear-gradient(135deg, #ff6b00, #f97316);
+      color: #ffffff;
+      padding: 10px 16px;
+      border-radius: 20px;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      box-shadow: 
+        0 8px 18px rgba(249, 115, 22, 0.35),
+        inset 0 2px 3px rgba(255, 255, 255, 0.5),
+        inset 0 -2px 4px rgba(194, 65, 12, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    /* Avatar 3D Frame */
+    .avatar-wrapper {
+      position: relative;
+      display: inline-block;
+      margin: 0.4rem 0 1rem;
+    }
+
+    .avatar-frame {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      padding: 6px;
+      background: linear-gradient(145deg, #ffffff, #e2e8f0);
+      box-shadow: 
+        0 18px 35px -8px rgba(100, 116, 139, 0.35),
+        0 6px 15px rgba(124, 58, 237, 0.15),
+        inset 0 3px 6px #ffffff,
+        inset 0 -3px 6px rgba(148, 163, 184, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .avatar-frame:hover {
+      transform: scale(1.04) rotate(-2deg);
     }
 
     .avatar {
-      width: 160px;
-      height: 160px;
+      width: 100%;
+      height: 100%;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 1rem;
-      border: 3px solid var(--accent);
-    }
-
-    h1 { font-size: 1.4rem; margin-bottom: 0.3rem; }
-    .bio { font-size: 0.95rem; margin-bottom: 1.5rem; }
-
-    .link {
       display: block;
-      text-decoration: none;
-      color: white;
-      background: var(--accent);
-      padding: 0.8rem;
-      margin: 0.5rem 0;
-      border-radius: 12px;
-      font-weight: 600;
-      transition: transform 0.2s ease, background 0.3s ease;
-      position: relative;
-      z-index: 1;
+      border: 2px solid #ffffff;
     }
 
-    .link i { margin-right: 10px; }
-
-    .link:hover {
-      background: #f7cfc7;
-      transform: scale(1.05);
-      color: black;
-    }
-
-    /* ============================= */
-    /* 🔥 SOCIAL ICONS ULTRA PREMIUM */
-    /* ============================= */
-    .social-icons {
-      margin-top: 2rem;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      z-index: 1;
-      position: relative;
-    }
-
-    .social-icons a {
-      width: 60px;
-      height: 60px;
+    .avatar-status-badge {
+      position: absolute;
+      bottom: 4px;
+      right: 4px;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #ffffff;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.6rem;
+      font-size: 13px;
+      box-shadow: 0 4px 10px rgba(16, 185, 129, 0.45);
+      border: 3px solid #ffffff;
+    }
+
+    h1 {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin: 0.2rem 0 0.3rem;
+      letter-spacing: -0.4px;
+    }
+
+    .bio {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin: 0 0 1.6rem;
+      font-weight: 500;
+    }
+
+    .bio strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    /* ========================================= */
+    /* 🚀 3D TACTILE NAVIGATION LINKS (.link)    */
+    /* Smooth hover animation requested by user  */
+    /* ========================================= */
+    .links-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 1.8rem;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       text-decoration: none;
-      backdrop-filter: blur(10px);
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255,255,255,0.2);
-      transition: all 0.4s ease;
-      animation: fadeInUp 1s ease forwards;
+      padding: 1rem 1.3rem;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.98rem;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      /* ✨ Transition ultra fluide demandée */
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .link-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      z-index: 2;
     }
 
-    @keyframes pulseGlow {
-      0% { box-shadow: 0 0 5px currentColor; }
-      50% { box-shadow: 0 0 20px currentColor; }
-      100% { box-shadow: 0 0 5px currentColor; }
+    .link-icon-box {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.4), inset 0 -2px 3px rgba(0, 0, 0, 0.15);
+      /* ✨ Animation fluide de couleur et d'échelle de l'icône */
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    .social-icons a.facebook { color: #1877F2; animation: pulseGlow 2s infinite; }
-    .social-icons a.instagram {
+    .link i {
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .link-arrow {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      z-index: 2;
+    }
+
+    /* --- THEME 1 : PARCOURS EN MANAGEMENT (Emeraude / Teal 3D) --- */
+    .link-parcours {
+      background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+      color: #ffffff;
+      box-shadow: 
+        0 10px 24px -5px rgba(5, 150, 105, 0.35),
+        inset 0 2px 3px rgba(255, 255, 255, 0.4),
+        inset 0 -2px 4px rgba(4, 120, 87, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .link-parcours .link-icon-box {
+      background: rgba(255, 255, 255, 0.22);
+      color: #ffffff;
+    }
+
+    .link-parcours:hover {
+      background: linear-gradient(135deg, #047857 0%, #34d399 100%);
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 
+        0 18px 35px -5px rgba(5, 150, 105, 0.5),
+        inset 0 2px 4px rgba(255, 255, 255, 0.6);
+      color: #ffffff;
+    }
+
+    /* Changement de couleur d'icône au survol */
+    .link-parcours:hover .link-icon-box {
+      background: #ffffff;
+      transform: scale(1.18) rotate(8deg);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .link-parcours:hover .link-icon-box i {
+      color: #047857; /* Vert profond contrasté */
+      text-shadow: 0 0 12px rgba(16, 185, 129, 0.6);
+    }
+
+    .link-parcours:hover .link-arrow {
+      transform: translateX(5px);
+      opacity: 1;
+      color: #fef08a; /* Or solaire */
+    }
+
+    /* --- THEME 2 : MES VOYAGES (Tangerine Sunset 3D) --- */
+    .link-voyages {
+      background: linear-gradient(135deg, #ff6b00 0%, #f97316 100%);
+      color: #ffffff;
+      box-shadow: 
+        0 10px 24px -5px rgba(249, 115, 22, 0.35),
+        inset 0 2px 3px rgba(255, 255, 255, 0.4),
+        inset 0 -2px 4px rgba(194, 65, 12, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .link-voyages .link-icon-box {
+      background: rgba(255, 255, 255, 0.22);
+      color: #ffffff;
+    }
+
+    .link-voyages:hover {
+      background: linear-gradient(135deg, #ea580c 0%, #fb923c 100%);
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 
+        0 18px 35px -5px rgba(249, 115, 22, 0.5),
+        inset 0 2px 4px rgba(255, 255, 255, 0.6);
+      color: #ffffff;
+    }
+
+    /* Changement de couleur d'icône au survol */
+    .link-voyages:hover .link-icon-box {
+      background: #ffffff;
+      transform: scale(1.18) rotate(-8deg);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .link-voyages:hover .link-icon-box i {
+      color: #ea580c; /* Orange ardent */
+      text-shadow: 0 0 12px rgba(251, 146, 60, 0.7);
+    }
+
+    .link-voyages:hover .link-arrow {
+      transform: translateX(5px);
+      opacity: 1;
+      color: #bae6fd; /* Cyan doux */
+    }
+
+    /* --- THEME 3 : EMAIL DIRECT (Lilac / Violet 3D) --- */
+    .link-email {
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+      color: #ffffff;
+      box-shadow: 
+        0 10px 24px -5px rgba(124, 58, 237, 0.35),
+        inset 0 2px 3px rgba(255, 255, 255, 0.4),
+        inset 0 -2px 4px rgba(109, 40, 217, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .link-email .link-icon-box {
+      background: rgba(255, 255, 255, 0.22);
+      color: #ffffff;
+    }
+
+    .link-email:hover {
+      background: linear-gradient(135deg, #6d28d9 0%, #c084fc 100%);
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 
+        0 18px 35px -5px rgba(124, 58, 237, 0.5),
+        inset 0 2px 4px rgba(255, 255, 255, 0.6);
+      color: #ffffff;
+    }
+
+    /* Changement de couleur d'icône au survol */
+    .link-email:hover .link-icon-box {
+      background: #ffffff;
+      transform: scale(1.18) rotate(8deg);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .link-email:hover .link-icon-box i {
+      color: #7c3aed; /* Violet vibrant */
+      text-shadow: 0 0 12px rgba(168, 85, 247, 0.7);
+    }
+
+    .link-email:hover .link-arrow {
+      transform: translateX(5px);
+      opacity: 1;
+      color: #fde047; /* Jaune or */
+    }
+
+    /* --- THEME 4 : APPELER DIRECT (Porcelain Neumorphic 3D) --- */
+    .link-phone {
+      background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+      color: #1e293b;
+      box-shadow: 
+        0 10px 24px -5px rgba(100, 116, 139, 0.18),
+        inset 0 2px 3px #ffffff,
+        inset 0 -2px 4px rgba(203, 213, 225, 0.4);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+    }
+
+    .link-phone .link-icon-box {
+      background: linear-gradient(135deg, #dbeafe, #eff6ff);
+      color: #2563eb;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.15);
+    }
+
+    .link-phone:hover {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      color: #ffffff;
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 
+        0 18px 35px -5px rgba(15, 23, 42, 0.35),
+        inset 0 2px 3px rgba(255, 255, 255, 0.3);
+      border-color: #334155;
+    }
+
+    /* Changement de couleur d'icône au survol */
+    .link-phone:hover .link-icon-box {
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      transform: scale(1.18) rotate(-8deg);
+      box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+    }
+
+    .link-phone:hover .link-icon-box i {
+      color: #ffffff; /* Blanc pur rayonnant */
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+
+    .link-phone:hover .link-arrow {
+      transform: translateX(5px);
+      opacity: 1;
+      color: #38bdf8;
+    }
+
+    /* ========================================= */
+    /* 💎 3D TACTILE SOCIAL BUTTONS              */
+    /* ========================================= */
+    .social-section-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .social-section-title::before,
+    .social-section-title::after {
+      content: "";
+      height: 1px;
+      width: 25px;
+      background: rgba(203, 213, 225, 0.8);
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      text-decoration: none;
+      background: linear-gradient(145deg, #ffffff, #f1f5f9);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 
+        0 8px 18px -4px rgba(100, 116, 139, 0.2),
+        inset 0 2px 3px #ffffff,
+        inset 0 -2px 3px rgba(203, 213, 225, 0.4);
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .social-btn:hover {
+      transform: translateY(-5px) scale(1.12);
+      box-shadow: 0 14px 25px -4px rgba(100, 116, 139, 0.35);
+    }
+
+    .social-btn.facebook { color: #1877f2; }
+    .social-btn.facebook:hover { background: #1877f2; color: #ffffff; }
+
+    .social-btn.instagram {
+      color: #e1306c;
+    }
+    .social-btn.instagram:hover {
       background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: pulseGlow 2s infinite;
+      color: #ffffff;
     }
-    .social-icons a.tiktok { color: #000; text-shadow: 2px 2px #25F4EE, -2px -2px #FE2C55; animation: pulseGlow 2s infinite; }
-    .social-icons a.linkedin { color: #0A66C2; animation: pulseGlow 2s infinite; }
-    .social-icons a.strava {
-  color: #FC4C02; /* Orange officiel Strava */
-  animation: pulseGlow 2s infinite;
-}
 
+    .social-btn.tiktok { color: #000000; }
+    .social-btn.tiktok:hover { background: #000000; color: #ffffff; }
 
-    .social-icons a:hover { transform: scale(1.3) rotate(10deg); background: rgba(255,255,255,0.15); }
+    .social-btn.linkedin { color: #0a66c2; }
+    .social-btn.linkedin:hover { background: #0a66c2; color: #ffffff; }
 
-    footer { margin-top: 1.5rem; font-size: 0.85rem; color: #ddd; position: relative; z-index:1; }
+    .social-btn.strava { color: #fc4c02; }
+    .social-btn.strava:hover { background: #fc4c02; color: #ffffff; }
 
-    /* ============================= */
-    /* ⭐ STARS EFFECT */
-    /* ============================= */
-    .star {
+    footer {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(226, 232, 240, 0.8);
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    /* ✨ Pearlescent Click Particles */
+    .pearl-particle {
       position: absolute;
-      width: 6px;
-      height: 6px;
-      background: gold;
+      width: 8px;
+      height: 8px;
+      background: radial-gradient(circle, #ffffff, rgba(167, 243, 208, 0.9) 70%, rgba(16, 185, 129, 0.7) 100%);
       border-radius: 50%;
       pointer-events: none;
-      opacity: 1;
-      transform: scale(1);
-      animation: star-fade 0.8s forwards;
-      z-index: 0;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.5);
+      animation: particleFade 0.8s ease-out forwards;
+      z-index: 9999;
     }
 
-    @keyframes star-fade {
-      0% { opacity: 1; transform: scale(1) translateY(0) rotate(0deg);}
-      100% { opacity: 0; transform: scale(0.5) translateY(-20px) rotate(360deg);}
+    @keyframes particleFade {
+      0% { opacity: 1; transform: scale(1) translateY(0); }
+      100% { opacity: 0; transform: scale(0.3) translateY(-30px); }
     }
-@media (max-width: 768px) {
 
-  body {
-    animation: none; /* stop gradient animation sur mobile */
-  }
-
-  .social-icons a {
-    animation: none; /* stop pulse glow */
-  }
-
-}
-
+    @media (max-width: 480px) {
+      body {
+        padding: 24px 12px;
+      }
+      .pearl-splash-backdrop {
+        inset: -15px -12px -20px -12px;
+        border-radius: 42px;
+      }
+      .container {
+        padding: 1.6rem 1.2rem;
+        border-radius: 30px;
+      }
+      .top-deco-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+      .accent-3d-capsule {
+        justify-content: center;
+      }
+      .bubble-emerald-large {
+        right: -10px;
+        width: 50px;
+        height: 50px;
+      }
+      .bubble-glass-left {
+        left: -10px;
+        width: 40px;
+        height: 40px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
+<!-- 🫧 Suspended Glass & Emerald Bubbles -->
+<div class="bubble-scene">
+  <div class="bubble bubble-emerald-large"></div>
+  <div class="bubble bubble-emerald-medium"></div>
+  <div class="bubble bubble-emerald-small"></div>
+  <div class="bubble bubble-glass-left"></div>
+  <div class="bubble bubble-pearl-tiny"></div>
+</div>
+
+<!-- 🌊 Pearl Splash + Main Container -->
+<div class="pearl-splash-wrapper">
+  <div class="pearl-splash-backdrop"></div>
+
+  <div class="container">
+    <!-- Top Decorative Row inspired by Glass.jfif -->
+    <div class="top-deco-row">
+      <div class="identity-card">
+        <div class="identity-tag">ISCAM Business School</div>
+        <div class="identity-title">MDE • Management</div>
+      </div>
+      <div class="accent-3d-capsule">
+        <i class="fas fa-graduation-cap"></i> 3ème année
+      </div>
+    </div>
+
+    <!-- 👤 Avatar in 3D Porcelain Bezel -->
+    <div class="avatar-wrapper">
+      <div class="avatar-frame">
+        <img src="Rolland.jpeg" alt="Rolland RANDRIAMANAMPY" class="avatar">
+      </div>
+      <div class="avatar-status-badge" title="Disponible pour projets & opportunités">
+        <i class="fas fa-check"></i>
+      </div>
+    </div>
+
+    <h1>Rolland RANDRIAMANAMPY</h1>
+    <p class="bio">
+      Passionné de <strong>management stratégique</strong>, de développement d'entreprise, d'artisanat d'art et de trail.
+    </p>
+
+    <!-- 🚀 Interactive 3D Links with Fluid Dynamic Hover Animation -->
+    <div class="links-stack">
+      <!-- 1. Parcours en Management (Emerald/Teal 3D) -->
+      <a href="parcours.html" class="link link-parcours">
+        <div class="link-left">
+          <div class="link-icon-box">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <span>Mes parcours en Management</span>
+        </div>
+        <i class="fas fa-arrow-right link-arrow"></i>
+      </a>
+
+      <!-- 2. Mes Voyages (Tangerine 3D Pill) -->
+      <a href="voyages.html" class="link link-voyages">
+        <div class="link-left">
+          <div class="link-icon-box">
+            <i class="fas fa-plane"></i>
+          </div>
+          <span>Mes Voyages & Découvertes</span>
+        </div>
+        <i class="fas fa-arrow-right link-arrow"></i>
+      </a>
+
+      <!-- 3. Email (Lilac/Violet 3D Card) -->
+      <a href="mailto:rollandrandria102@gmail.com" class="link link-email">
+        <div class="link-left">
+          <div class="link-icon-box">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <span>rollandrandria102@gmail.com</span>
+        </div>
+        <i class="fas fa-arrow-right link-arrow"></i>
+      </a>
+
+      <!-- 4. Appeler (Porcelain Neumorphic Pill) -->
+      <a href="#" class="link link-phone" onclick="callNumber(); return false;">
+        <div class="link-left">
+          <div class="link-icon-box">
+            <i class="fas fa-phone"></i>
+          </div>
+          <span>Appeler (+261 34 92 895 56)</span>
+        </div>
+        <i class="fas fa-arrow-right link-arrow"></i>
+      </a>
+    </div>
+
+    <!-- 💎 3D Tactile Social Buttons -->
+    <div class="social-section-title">Réseaux Officiels</div>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/rolland-randriamanampy-6a6606247" target="_blank" rel="noopener noreferrer" class="social-btn linkedin" title="LinkedIn" aria-label="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="https://www.facebook.com/share/1JQ3F6FyAy/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="social-btn facebook" title="Facebook" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://www.instagram.com/rollandrandriamanampy" target="_blank" rel="noopener noreferrer" class="social-btn instagram" title="Instagram" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.tiktok.com/@rothehitch" target="_blank" rel="noopener noreferrer" class="social-btn tiktok" title="TikTok" aria-label="TikTok">
+        <i class="fab fa-tiktok"></i>
+      </a>
+      <a href="https://strava.app.link/f7v9Wbh9E0b" target="_blank" rel="noopener noreferrer" class="social-btn strava" title="Strava" aria-label="Strava">
+        <i class="fab fa-strava"></i>
+      </a>
+    </div>
+
+    <footer>© 2026 Rolland RANDRIAMANAMPY. Tous droits réservés.</footer>
+  </div>
+</div>
+
 <script>
-// 📞 Bouton Appeler
+// 📞 Toast appel direct
 function callNumber() {
   const phoneNumber = "+261349289556";
   if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
@@ -191,10 +822,10 @@ function callNumber() {
     if (!toast) {
       toast = document.createElement("div");
       toast.id = "phone-toast";
-      toast.style.cssText = "position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#fff;padding:12px 20px;border-radius:10px;box-shadow:0 10px 25px rgba(0,0,0,0.5);z-index:9999;font-size:0.95rem;text-align:center;border:1px solid #3b82f6;max-width:90%;";
+      toast.style.cssText = "position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e1b4b;color:#ffffff;padding:14px 24px;border-radius:16px;box-shadow:0 15px 35px rgba(30,27,75,0.35);z-index:9999;font-size:0.95rem;text-align:center;border:1px solid rgba(255,255,255,0.2);max-width:90%;font-weight:600;";
       document.body.appendChild(toast);
     }
-    toast.innerHTML = "📞 Veuillez appeler : <strong>" + phoneNumber + "</strong>";
+    toast.innerHTML = "📞 Veuillez composer le : <strong style='color:#38bdf8;'>" + phoneNumber + "</strong>";
     toast.style.display = "block";
     clearTimeout(window._toastTimeout);
     window._toastTimeout = setTimeout(() => {
@@ -203,51 +834,20 @@ function callNumber() {
   }
 }
 
-// ✨ Effet étoiles au clic
+// ✨ Particules perlescentes au clic
 document.addEventListener('click', function(e){
-  for(let i=0; i<5; i++){ // plusieurs étoiles par clic
-    const star = document.createElement('div');
-    star.classList.add('star');
-    star.style.left = (e.clientX + Math.random()*20 -10) + 'px';
-    star.style.top = (e.clientY + Math.random()*20 -10) + 'px';
-    star.style.background = `hsl(${Math.random()*360}, 80%, 60%)`; // couleur aléatoire
-    document.body.appendChild(star);
-    setTimeout(()=> star.remove(), 800);
+  // Ne pas déclencher sur les liens
+  if (e.target.closest('a') || e.target.closest('button')) return;
+  for(let i = 0; i < 4; i++){
+    const particle = document.createElement('div');
+    particle.classList.add('pearl-particle');
+    particle.style.left = (e.clientX + (Math.random() * 24 - 12)) + 'px';
+    particle.style.top = (e.clientY + (Math.random() * 24 - 12)) + 'px';
+    document.body.appendChild(particle);
+    setTimeout(() => particle.remove(), 800);
   }
 });
 </script>
 
-<div class="container">
-  <img src="Rolland.jpeg" alt="Photo de profil" class="avatar">
-
-  <h1>Rolland RANDRIAMANAMPY</h1>
-  <p class="bio">Passionné de management & business, voyage, art, sport</p>
-
-  <a href="#" class="link" onclick="callNumber()"><i class="fas fa-phone"></i> Appeler</a>
-  <a href="mailto:rollandrandria102@gmail.com" class="link"><i class="fas fa-envelope"></i> Email</a>
-  <a href="voyages.html" class="link"><i class="fas fa-plane"></i> Mes Voyages</a>
-  <a href="parcours.html" class="link"><i class="fas fa-briefcase"></i> Mes parcours en Management</a>
-
-  <!-- 🔥 SOCIAL ULTRA PREMIUM -->
-  <div class="social-icons">
-    <a href="https://www.facebook.com/share/1JQ3F6FyAy/?mibextid=wwXIfr" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.instagram.com/rollandrandriamanampy" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.tiktok.com/@rothehitch" target="_blank" class="tiktok"><i class="fab fa-tiktok"></i></a>
-    <a href="https://www.linkedin.com/in/rolland-randriamanampy-6a6606247" target="_blank" class="linkedin"><i class="fab fa-linkedin"></i></a>
-    <a href="https://strava.app.link/f7v9Wbh9E0b" target="_blank" class="strava">
-  <i class="fab fa-strava"></i>
-</a>
-
-
-  </div>
-
-  <footer>© 2026 RoTheHitch.Lab — All rights reserved</footer>
-</div>
-
 </body>
 </html>
-
-
-
-
-
