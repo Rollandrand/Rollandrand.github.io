@@ -1491,20 +1491,487 @@ footer::after {
     font-size: 16px;
   }
 }
+
+/* ================= ENHANCED MANAGEMENT PORTFOLIO STYLES ================= */
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #C5FF00, #81D4FA);
+  width: 0%;
+  z-index: 2000;
+  transition: width 0.1s ease-out;
+}
+body.light-mode #reading-progress {
+  background: linear-gradient(90deg, #2563eb, #81D4FA);
+}
+
+.nav-hub-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(197, 255, 0, 0.12);
+  border: 1px solid var(--border-color);
+  color: var(--accent-primary) !important;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 13.5px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+.nav-hub-btn:hover {
+  background: var(--accent-primary);
+  color: #1a1a2e !important;
+  transform: translateY(-2px);
+}
+body.light-mode .nav-hub-btn {
+  background: rgba(37, 99, 235, 0.08);
+}
+body.light-mode .nav-hub-btn:hover {
+  background: #2563eb;
+  color: white !important;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #34d399;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.hero-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+  max-width: 960px;
+  margin: 35px auto 25px;
+  text-align: left;
+}
+.metric-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.metric-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-primary);
+}
+.metric-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(197, 255, 0, 0.15);
+  color: var(--accent-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+body.light-mode .metric-icon {
+  background: rgba(37, 99, 235, 0.12);
+  color: #2563eb;
+}
+.metric-content h4 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.metric-content p {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.skills-tags-container {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.skills-tags-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.skills-group-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin-right: 4px;
+}
+.chip {
+  display: inline-block;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: transform 0.2s;
+}
+.chip:hover {
+  transform: translateY(-1px);
+}
+.chip-hard {
+  background: rgba(129, 212, 250, 0.15);
+  border: 1px solid rgba(129, 212, 250, 0.4);
+  color: #81D4FA;
+}
+body.light-mode .chip-hard {
+  background: rgba(37, 99, 235, 0.1);
+  border-color: rgba(37, 99, 235, 0.3);
+  color: #1d4ed8;
+}
+.chip-soft {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #34d399;
+}
+body.light-mode .chip-soft {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #047857;
+}
+
+.achievement-box {
+  margin-top: 15px;
+  background: rgba(197, 255, 0, 0.08);
+  border-left: 3px solid var(--accent-primary);
+  border-radius: 0 10px 10px 0;
+  padding: 10px 14px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+body.light-mode .achievement-box {
+  background: rgba(37, 99, 235, 0.06);
+  border-left-color: #2563eb;
+}
+.achievement-box strong {
+  color: var(--accent-primary);
+}
+body.light-mode .achievement-box strong {
+  color: #2563eb;
+}
+
+/* Projets Section */
+.projets-section {
+  padding: 80px 8%;
+  background: var(--bg-primary);
+  position: relative;
+}
+.projets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+.projet-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  position: relative;
+  overflow: hidden;
+}
+.projet-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-primary);
+  box-shadow: 0 15px 40px rgba(197, 255, 0, 0.15);
+}
+body.light-mode .projet-card:hover {
+  box-shadow: 0 15px 40px rgba(37, 99, 235, 0.15);
+}
+.projet-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.projet-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(197, 255, 0, 0.2), rgba(129, 212, 250, 0.2));
+  color: var(--accent-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+body.light-mode .projet-icon {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(79, 70, 229, 0.15));
+  color: #2563eb;
+}
+.projet-tag {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  color: var(--text-secondary);
+}
+.projet-card h3 {
+  font-size: 19px;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.projet-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 18px;
+  flex-grow: 1;
+}
+.projet-footer {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+  color: var(--text-tertiary);
+}
+
+/* Category filter buttons in competences */
+.comp-filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 30px auto 40px;
+  max-width: 800px;
+}
+.comp-filter-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.comp-filter-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.12);
+}
+.comp-filter-btn.active {
+  background: var(--accent-primary);
+  color: #1a1a2e;
+  border-color: var(--accent-primary);
+  box-shadow: 0 4px 15px rgba(197, 255, 0, 0.3);
+}
+body.light-mode .comp-filter-btn.active {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+.tool-info-tag {
+  display: block;
+  font-size: 11.5px;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+/* Contact Fast Grid */
+.contact-fast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto 35px;
+  text-align: left;
+}
+.contact-info-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+.contact-info-card .card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+.contact-info-card .card-value {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+  word-break: break-word;
+}
+.copy-btn {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  margin-top: 4px;
+}
+.copy-btn:hover {
+  background: var(--accent-primary);
+  color: #1a1a2e;
+}
+body.light-mode .copy-btn:hover {
+  background: #2563eb;
+  color: white;
+}
+
+/* Scroll to top */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  color: #1a1a2e;
+  border: none;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+body.light-mode .scroll-top-btn {
+  background: #2563eb;
+  color: white;
+}
+.scroll-top-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+/* Modal Overlay & Window */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 14, 39, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 3000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.active {
+  display: flex;
+}
+.modal-window {
+  background: #16213e;
+  color: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  max-width: 720px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 30px;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  animation: modalScale 0.3s ease-out;
+}
+body.light-mode .modal-window {
+  background: #ffffff;
+  color: #1a1a2e;
+  border-color: rgba(37, 99, 235, 0.2);
+}
+@keyframes modalScale {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+.modal-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: inherit;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+.modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
 </style>
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+<!-- Reading Progress Bar -->
+<div id="reading-progress"></div>
 
+<!-- ================= NAVBAR ================= -->
 <nav class="navbar">
-  <div class="logo">Rolland <br>RANDRIAMANAMPY</br></div>
+  <div class="logo">Rolland<br>RANDRIAMANAMPY</div>
 
   <ul class="nav-links">
+    <li><a href="index.html" class="nav-hub-btn"><i class="fas fa-arrow-left"></i> Liens officiels</a></li>
     <li><a href="#hero">Accueil</a></li>
     <li><a href="#parcours">Parcours</a></li>
+    <li><a href="#projets">Projets & Réalisations</a></li>
     <li><a href="#competences">Compétences</a></li>
+    <li><a href="#interets">Centres d'intérêt</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 
@@ -1523,23 +1990,26 @@ footer::after {
 
 <!-- Mobile Navigation Overlay -->
 <div class="mobile-nav-overlay" id="mobileNav">
+  <a href="index.html" onclick="closeMobileNav()" style="color: var(--accent-primary);"><i class="fas fa-arrow-left"></i> Retour aux liens officiels</a>
   <a href="#hero" onclick="closeMobileNav()">Accueil</a>
   <a href="#parcours" onclick="closeMobileNav()">Parcours</a>
+  <a href="#projets" onclick="closeMobileNav()">Projets & Réalisations</a>
   <a href="#competences" onclick="closeMobileNav()">Compétences</a>
   <a href="#interets" onclick="closeMobileNav()">Centres d'Intérêt</a>
   <a href="#contact" onclick="closeMobileNav()">Contact</a>
 </div>
 
 <!-- ================= HERO ================= -->
-
 <section class="hero" id="hero">
+  <div class="hero-badge">
+    <i class="fas fa-check-circle"></i> Disponible pour opportunités & projets en Management
+  </div>
 
   <div class="avatar-circle">
-    <img src="Rolland.jpeg" alt="Votre Photo">
+    <img src="Rolland.jpeg" alt="Rolland RANDRIAMANAMPY">
   </div>
 
   <h1>Rolland RANDRIAMANAMPY</h1>
-
   <h2>Étudiant en Management et Développement d'Entreprise</h2>
 
   <div class="sub-info">
@@ -1547,154 +2017,356 @@ footer::after {
   </div>
 
   <p>
-    Passionné par le management et le développement des entreprises, je cherche constamment à développer mes compétences en management, gestion de projets et leadership. Mon parcours académique m'a permis d'acquérir une vision globale du monde des affaires et de développer un esprit analytique et entrepreneurial.
+    Passionné par le management stratégique, le développement commercial et le leadership opérationnel, je combine formation académique rigoureuse et expériences concrètes sur le terrain. Mon objectif est d'accompagner les organisations vers l'efficacité, la productivité et la performance durable.
   </p>
+
+  <!-- Key Metrics / Cadre structuré -->
+  <div class="hero-metrics-grid">
+    <div class="metric-card">
+      <div class="metric-icon"><i class="fas fa-graduation-cap"></i></div>
+      <div class="metric-content">
+        <h4>Formation</h4>
+        <p>Licence 2 MDE (ISCAM)</p>
+      </div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-icon"><i class="fas fa-briefcase"></i></div>
+      <div class="metric-content">
+        <h4>Expérience terrain</h4>
+        <p>Coordination, Vente & MBO</p>
+      </div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-icon"><i class="fas fa-chess-knight"></i></div>
+      <div class="metric-content">
+        <h4>Outils phares</h4>
+        <p>SWOT, PESTEL, Porter, MBO</p>
+      </div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-icon"><i class="fas fa-map-marker-alt"></i></div>
+      <div class="metric-content">
+        <h4>Localisation</h4>
+        <p>Ambositra / Antananarivo</p>
+      </div>
+    </div>
+  </div>
 
   <div class="hero-buttons">
     <a href="#parcours" class="btn-primary">
       <i class="fas fa-compass"></i> Découvrir mon parcours
     </a>
-
-    <a href="#" class="btn-secondary">
-      <i class="fas fa-download"></i> Télécharger CV
+    <button onclick="openCvModal()" class="btn-secondary" style="cursor: pointer; border: none; font-size: inherit; font-family: inherit;">
+      <i class="fas fa-file-alt"></i> Synthèse CV
+    </button>
+    <a href="#contact" class="btn-secondary">
+      <i class="fas fa-envelope"></i> Me contacter
     </a>
   </div>
 
   <div class="social-icons">
-    <a href="#"><i class="fas fa-envelope"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="mailto:rollandrandria102@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.linkedin.com/in/rolland-randriamanampy-6a6606247" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://www.facebook.com/share/1JQ3F6FyAy/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.tiktok.com/@rothehitch" target="_blank" rel="noopener noreferrer" title="TikTok"><i class="fab fa-tiktok"></i></a>
+    <a href="https://strava.app.link/f7v9Wbh9E0b" target="_blank" rel="noopener noreferrer" title="Strava"><i class="fab fa-strava"></i></a>
   </div>
-
 </section>
 
 <!-- ================= PARCOURS SECTION ================= -->
-
 <section class="parcours-section" id="parcours">
   <h2 class="section-title">Mon Parcours</h2>
-  <p class="section-subtitle">Formation académique et expériences professionnelles</p>
+  <p class="section-subtitle">Formation académique d'excellence et expériences professionnelles probantes</p>
 
   <div class="tabs">
-    <button class="tab-btn active" onclick="showTab('formation')">
-      <i class="fas fa-graduation-cap"></i> Formation
+    <button class="tab-btn active" onclick="showTab('all', this)">
+      <i class="fas fa-layer-group"></i> Tout afficher
     </button>
-    <button class="tab-btn" onclick="showTab('experience')">
-      <i class="fas fa-briefcase"></i> Expérience
+    <button class="tab-btn" onclick="showTab('formation', this)">
+      <i class="fas fa-graduation-cap"></i> Formations
+    </button>
+    <button class="tab-btn" onclick="showTab('experience', this)">
+      <i class="fas fa-briefcase"></i> Expériences
     </button>
   </div>
 
   <div class="timeline">
-    <div class="timeline-vertical" id="formation">
+    <!-- Formations -->
+    <div class="timeline-vertical" id="formation-wrapper">
       <!-- Formation 1 -->
-      <div class="timeline-item">
+      <div class="timeline-item timeline-formation">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
           <div class="timeline-school-frame">
-            <img src="ISCAM LOGO.jpg" alt="École de Commerce" class="timeline-school-image">
+            <img src="ISCAM LOGO.jpg" alt="ISCAM Business School" class="timeline-school-image">
           </div>
           <div class="timeline-icon" style="background: linear-gradient(135deg, rgba(197, 255, 0, 0.2), rgba(129, 212, 250, 0.2)); color: #C5FF00;">
             <i class="fas fa-graduation-cap"></i>
           </div>
-          <h3>Licence en Management et Développement d'Entreprise</h3>
-          <div class="school"><a href="https://www.iscam.mg" target="_blank" class="school-link">ISCAM BUSINESS SCHOOL</a></div>
+          <h3>Licence en Management et Développement d'Entreprise (MDE)</h3>
+          <div class="school"><a href="https://www.iscam.mg" target="_blank" rel="noopener noreferrer" class="school-link">ISCAM BUSINESS SCHOOL</a></div>
+          <span class="year">2023 - Présent • 2ème année en cours</span>
 
-          <span class="year">2ème année (en cours)</span>
           <ul>
-            <li><strong>Licence 2 : MDE (MANAGEMENT ET DEVELOPPEMENT D'ENTREPRISE)</strong></li>
-            <li> 🎓 Établissement d’enseignement supérieur privé fondé en 1990, présent à Antananarivo et dans plusieurs régions de Madagascar</li>
-            <li>📍 Business School spécialisée en Management, Finance, Comptabilité, Marketing et Entrepreneuriat</li>
-            <li>🌍 Ouverture internationale à travers des partenariats académiques et professionnels</li>
-            <li>💼 Forte orientation vers la professionnalisation (stages, projets d’entreprise, immersion terrain)</li>
-            <li>🚀 Objectif : former des managers responsables, éthiques et compétitifs</li>
+            <li><strong>Parcours :</strong> Licence 2 Management et Développement d'Entreprise.</li>
+            <li><strong>Excellence académique :</strong> Formation approfondie en stratégie, finance d'entreprise, marketing 4P, management des ressources humaines et contrôle de gestion.</li>
+            <li><strong>Pédagogie active :</strong> Études de cas réels, simulations d'entreprises, projets de groupe et immersions terrain.</li>
+            <li><strong>Objectif :</strong> Développer un leadership éthique, responsable et orienté vers l'innovation et les résultats durables.</li>
           </ul>
+
+          <div class="achievement-box">
+            <strong>Acquis majeurs :</strong> Maîtrise des diagnostics stratégiques d'entreprise, élaboration de business plans et gestion collaborative par objectifs.
+          </div>
+
+          <div class="skills-tags-container">
+            <div class="skills-tags-group">
+              <span class="skills-group-label">Matières & Acquis :</span>
+              <span class="chip chip-hard">Management Stratégique</span>
+              <span class="chip chip-hard">Gestion Financière</span>
+              <span class="chip chip-hard">Marketing Opérationnel</span>
+              <span class="chip chip-hard">Droit des Affaires</span>
+              <span class="chip chip-soft">Travail d'équipe</span>
+              <span class="chip chip-soft">Rigueur analytique</span>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Formation 2 -->
-      <div class="timeline-item">
+      <div class="timeline-item timeline-formation">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
           <div class="timeline-school-frame">
-            <img src="Lycée.png" alt="Lycée" class="timeline-school-image">
+            <img src="Lycée.png" alt="Lycée RAKOTOARISOA" class="timeline-school-image">
           </div>
           <div class="timeline-icon" style="background: linear-gradient(135deg, rgba(197, 255, 0, 0.2), rgba(129, 212, 250, 0.2)); color: #81D4FA;">
-            <i class="fas fa-graduation-cap"></i>
+            <i class="fas fa-award"></i>
           </div>
-          <h3>Baccalauréat Série D</h3>
+          <h3>Baccalauréat Scientifique (Série D)</h3>
           <div class="school">Lycée RAKOTOARISOA AMBOSITRA</div>
           <span class="year">Bachelier 2020</span>
+
           <ul>
-            <li><strong>🎓 Établissement public reconnu:</strong></li>
-            <li>📚 Bonne préparation à l'examen du Baccalauréat</li>
-            <li>👩‍🏫 Corps enseignant expérimenté</li>
-            <li>🧠 Formation solide en séries scientifiques et littéraires</li>
-            <li>🌍 Partenariat international avec le programme PASCH (Schulen: Partner der Zukunft)</li>
+            <li><strong>Formation scientifique :</strong> Solide bagage en mathématiques, sciences expérimentales et raisonnement logique déductif.</li>
+            <li><strong>Partenariat international :</strong> Implication dans le programme PASCH (Schulen: Partner der Zukunft) favorisant l'ouverture interculturelle.</li>
           </ul>
+
+          <div class="skills-tags-container">
+            <div class="skills-tags-group">
+              <span class="skills-group-label">Socle :</span>
+              <span class="chip chip-hard">Sciences & Mathématiques</span>
+              <span class="chip chip-hard">Raisonnement Structuré</span>
+              <span class="chip chip-soft">Persévérance</span>
+              <span class="chip chip-soft">Ouverture culturelle</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="timeline-vertical" id="experience" style="display: none;">
+    <!-- Expériences -->
+    <div class="timeline-vertical" id="experience-wrapper">
       <!-- Expérience 1 -->
-      <div class="timeline-item">
+      <div class="timeline-item timeline-experience">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
           <div class="timeline-school-frame">
-            <img src="LOF.jpeg" alt="Entreprise de Développement Stratégique" class="timeline-school-image">
+            <img src="LOF.jpeg" alt="ID'OM ART CONCEPT" class="timeline-school-image">
           </div>
           <div class="timeline-icon" style="background: linear-gradient(135deg, rgba(197, 255, 0, 0.2), rgba(129, 212, 250, 0.2)); color: #C5FF00;">
             <i class="fas fa-briefcase"></i>
           </div>
-          <h3>Stage - Marketing culturel et gestion de projet</h3>
+          <h3>Stage Professionnel — Marketing Culturel & Gestion de Projet</h3>
           <div class="school">ISCAM BUSINESS SCHOOL & ID'OM ART CONCEPT SARL</div>
-          <span class="year">Avril 2025- Août 2025</span>
+          <span class="year">Avril 2025 - Août 2025</span>
+
           <ul>
-            <li>J’ai assisté la Direction dans la coordination des activités internes tout en menant une mission de prospection commerciale afin de contribuer au développement de l’organisation.
-Parallèlement, j’ai accueilli des visiteurs étrangers, suivi une formation en gestion par objectifs (MBO) et participé à la conception et à la mise en place d’une salle d’exposition muséale.</li>
-            <li><strong>Compétences Hardskills :</strong></li>
-            <li style="margin-left: 20px;">Gestion de projet, Gestion par ojectifs MBO, Communication interculturelle, Vente</li>
-            <li><strong>Compétences Softskills :</strong></li>
-            <li style="margin-left: 20px;">Autonomie, Adaptabilité, Esprit d'analyse, Sens de responsabilité, proactivité</li>
+            <li><strong>Assistance à la Direction :</strong> Coordination quotidienne des activités opérationnelles internes et fluidification des flux d'information.</li>
+            <li><strong>Prospection Commerciale B2B/B2C :</strong> Ciblage, qualification et démarchage commercial de partenaires culturels et touristiques.</li>
+            <li><strong>Accueil & Relations Internationales :</strong> Guidage et médiation auprès de délégations et visiteurs étrangers en français et anglais.</li>
+            <li><strong>Conception Muséale :</strong> Participation active à la scénographie et à l'aménagement spatial d'une nouvelle salle d'exposition d'œuvres d'art.</li>
+            <li><strong>Méthodologie MBO :</strong> Application de la méthode de Management By Objectives (gestion par objectifs) pour le suivi de performance.</li>
           </ul>
+
+          <div class="achievement-box">
+            <strong>Impact & Résultat :</strong> Livraison d'un espace muséal fonctionnel et attractif, accroissement de la visibilité auprès des publics internationaux et respect des échéances projet.
+          </div>
+
+          <div class="skills-tags-container">
+            <div class="skills-tags-group">
+              <span class="skills-group-label">Hard Skills :</span>
+              <span class="chip chip-hard">Gestion de projet</span>
+              <span class="chip chip-hard">Management par Objectifs (MBO)</span>
+              <span class="chip chip-hard">Prospection Commerciale</span>
+              <span class="chip chip-hard">Scénographie Muséale</span>
+            </div>
+            <div class="skills-tags-group">
+              <span class="skills-group-label">Soft Skills :</span>
+              <span class="chip chip-soft">Autonomie</span>
+              <span class="chip chip-soft">Adaptabilité</span>
+              <span class="chip chip-soft">Communication interculturelle</span>
+              <span class="chip chip-soft">Sens des responsabilités</span>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Expérience 2 -->
-      <div class="timeline-item">
+      <div class="timeline-item timeline-experience">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
           <div class="timeline-school-frame">
-            <img src="LOGO IDOMART.jpg" alt="Association Étudiante" class="timeline-school-image">
+            <img src="LOGO IDOMART.jpg" alt="ID'OM ART CONCEPT SARL" class="timeline-school-image">
           </div>
           <div class="timeline-icon" style="background: linear-gradient(135deg, rgba(197, 255, 0, 0.2), rgba(129, 212, 250, 0.2)); color: #81D4FA;">
-            <i class="fas fa-chart-line"></i>
+            <i class="fas fa-store"></i>
           </div>
-          <h3>Responsable d'un point de vente</h3>
-          <div class="school">ID'OM ART CONCEPT SARL </div>
-          <span class="year">février 2024 - Août 2024</span>
+          <h3>Responsable de Point de Vente & Médiation Culturelle</h3>
+          <div class="school">ID'OM ART CONCEPT SARL — Petit Musée de la Marqueterie</div>
+          <span class="year">Février 2024 - Août 2024</span>
+
           <ul>
-            <li>J’ai assuré l’accueil des visiteurs du Petit Musée de la Marqueterie tout en valorisant les produits destinés à la vente à travers un agencement attractif et stratégique.
-J’ai également géré la vente des œuvres de marqueterie d’art ainsi que la tenue et la mise à jour rigoureuse du journal de caisse.</li>
-            <li><strong>Compétences Hardskills:</strong></li>
-            <li style="margin-left: 20px;">Accueil et relation client, Merchandising et valorisation des produits, Gestion des caisse et suivi de transaction</li>
-            <li><strong>Compétences Softskills:</strong></li>
-            <li style="margin-left: 20px;">Sens de service, Organisation, Responsabilité financière, Communication profesionnelle, Esprit commercial</li>
+            <li><strong>Accueil & Relation Clientèle :</strong> Prise en charge personnalisée des touristes locaux et internationaux, valorisation du patrimoine artistique malgache.</li>
+            <li><strong>Merchandising Visuel :</strong> Conception d'agencements attractifs pour maximiser l'intérêt et la conversion d'achat sur les pièces de marqueterie fine.</li>
+            <li><strong>Négociation & Clôture des Ventes :</strong> Conseil adapté et vente directe des œuvres d'art.</li>
+            <li><strong>Gestion Financière & Tenue de Caisse :</strong> Tenue rigoureuse du journal de caisse, inventaires réguliers et zéro écart sur les transactions.</li>
           </ul>
+
+          <div class="achievement-box">
+            <strong>Impact & Résultat :</strong> Amélioration mesurable de l'expérience visiteur, fidélisation de clients amateurs d'art et gestion financière sans anomalie sur 7 mois d'activité continue.
+          </div>
+
+          <div class="skills-tags-container">
+            <div class="skills-tags-group">
+              <span class="skills-group-label">Hard Skills :</span>
+              <span class="chip chip-hard">Merchandising & Agencement</span>
+              <span class="chip chip-hard">Gestion de Caisse</span>
+              <span class="chip chip-hard">Négociation Commerciale</span>
+              <span class="chip chip-hard">Suivi des Stocks</span>
+            </div>
+            <div class="skills-tags-group">
+              <span class="skills-group-label">Soft Skills :</span>
+              <span class="chip chip-soft">Sens du service</span>
+              <span class="chip chip-soft">Rigueur financière</span>
+              <span class="chip chip-soft">Communication persuasive</span>
+              <span class="chip chip-soft">Orientation client</span>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJETS & RÉALISATIONS ================= -->
+<section class="projets-section" id="projets">
+  <h2 class="section-title">Projets & Réalisations Clés</h2>
+  <p class="section-subtitle">Cas concrets où j'ai mobilisé méthodologie managériale, rigueur et créativité</p>
+
+  <div class="projets-grid">
+    <!-- Projet 1 -->
+    <div class="projet-card">
+      <div class="projet-header">
+        <div class="projet-icon"><i class="fas fa-landmark"></i></div>
+        <span class="projet-tag">Culture & Gestion</span>
+      </div>
+      <h3>Aménagement d'une Salle Muséale d'Art</h3>
+      <p>
+        Coordination et mise en place d'un espace d'exposition muséale dédié à la marqueterie d'art. Définition du parcours visiteur, éclairage valorisant, fiches explicatives bilingues et mise en avant de l'artisanat d'exception malgache.
+      </p>
+      <div class="skills-tags-group" style="margin-bottom: 12px;">
+        <span class="chip chip-hard">Scénographie</span>
+        <span class="chip chip-hard">Gestion de Projet</span>
+        <span class="chip chip-soft">Médiation culturelle</span>
+      </div>
+      <div class="projet-footer">
+        <span><i class="fas fa-check"></i> Projet mené avec succès</span>
+        <span>ID'OM ART CONCEPT</span>
+      </div>
+    </div>
+
+    <!-- Projet 2 -->
+    <div class="projet-card">
+      <div class="projet-header">
+        <div class="projet-icon"><i class="fas fa-bullseye"></i></div>
+        <span class="projet-tag">Management Stratégique</span>
+      </div>
+      <h3>Implémentation de la Méthode MBO</h3>
+      <p>
+        Déploiement de la gestion par objectifs (Management by Objectives) dans le cadre de missions de prospection. Décomposition d'objectifs globaux en sous-objectifs mesurables (SMART), suivi hebdomadaire et réajustements opérationnels.
+      </p>
+      <div class="skills-tags-group" style="margin-bottom: 12px;">
+        <span class="chip chip-hard">MBO</span>
+        <span class="chip chip-hard">Objectifs SMART</span>
+        <span class="chip chip-soft">Suivi de performance</span>
+      </div>
+      <div class="projet-footer">
+        <span><i class="fas fa-chart-line"></i> Efficacité renforcée</span>
+        <span>Méthode Managériale</span>
+      </div>
+    </div>
+
+    <!-- Projet 3 -->
+    <div class="projet-card">
+      <div class="projet-header">
+        <div class="projet-icon"><i class="fas fa-shopping-bag"></i></div>
+        <span class="projet-tag">Commerce & Merchandising</span>
+      </div>
+      <h3>Optimisation d'un Espace de Vente</h3>
+      <p>
+        Refonte de l'agencement du Petit Musée de la Marqueterie pour stimuler le panier moyen des visiteurs. Réorganisation des îlots d'exposition, mise en valeur des pièces phares et clarification de la grille tarifaire.
+      </p>
+      <div class="skills-tags-group" style="margin-bottom: 12px;">
+        <span class="chip chip-hard">Visual Merchandising</span>
+        <span class="chip chip-hard">Gestion de caisse</span>
+        <span class="chip chip-soft">Expérience client</span>
+      </div>
+      <div class="projet-footer">
+        <span><i class="fas fa-arrow-trend-up"></i> Satisfaction client accrue</span>
+        <span>Point de Vente</span>
+      </div>
+    </div>
+
+    <!-- Projet 4 -->
+    <div class="projet-card">
+      <div class="projet-header">
+        <div class="projet-icon"><i class="fas fa-diagram-project"></i></div>
+        <span class="projet-tag">Diagnostics d'Entreprise</span>
+      </div>
+      <h3>Analyses Organisationnelles Multidimensionnelles</h3>
+      <p>
+        Réalisation de diagnostics d'entreprises complets associant PESTEL (macro-environnement), les 5 Forces de Porter (intensité concurrentielle) et la matrice SWOT pour formuler des plans d'actions managériaux pragmatiques.
+      </p>
+      <div class="skills-tags-group" style="margin-bottom: 12px;">
+        <span class="chip chip-hard">SWOT & PESTEL</span>
+        <span class="chip chip-hard">5 Forces de Porter</span>
+        <span class="chip chip-soft">Esprit de synthèse</span>
+      </div>
+      <div class="projet-footer">
+        <span><i class="fas fa-brain"></i> Recommandations stratégiques</span>
+        <span>ISCAM Business School</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ================= COMPETENCES SECTION ================= -->
-
 <section class="competences-section" id="competences">
-  <h2 class="section-title">Mes Compétences</h2>
-  <p class="section-subtitle">Savoir-faire techniques et compétences managériales</p>
+  <h2 class="section-title">Mes Compétences & Outils</h2>
+  <p class="section-subtitle">Savoir-faire méthodologiques, compétences managériales et maîtrise des outils d'analyse</p>
+
+  <!-- Category filter tabs -->
+  <div class="comp-filter-tabs">
+    <button class="comp-filter-btn active" onclick="filterCompetences('all', this)">Toutes</button>
+    <button class="comp-filter-btn" onclick="filterCompetences('managerial', this)">👥 Managériales</button>
+    <button class="comp-filter-btn" onclick="filterCompetences('business', this)">📈 Stratégie & Business</button>
+    <button class="comp-filter-btn" onclick="filterCompetences('tools', this)">🧠 Outils d'Analyse</button>
+    <button class="comp-filter-btn" onclick="filterCompetences('tech', this)">⚙️ Outils & Soft Skills</button>
+  </div>
 
   <div class="competences-grid">
     <!-- Card 1: Compétences Managériales -->
-    <div class="competence-card">
+    <div class="competence-card" data-category="managerial">
       <h3>
         <div class="icon" style="background: #dbeafe; color: #2563eb;">
           <i class="fas fa-users"></i>
@@ -1702,302 +2374,373 @@ J’ai également géré la vente des œuvres de marqueterie d’art ainsi que l
         Compétences Managériales
       </h3>
       <div class="competence-item">
-        <label>Leadership <span>35%</span></label>
-        <div class="progress-bar">
-          <div class="progress-fill" data-width="35%"></div>
-        </div>
+        <label>Travail d'Équipe & Coopération <span>75%</span></label>
+        <div class="progress-bar"><div class="progress-fill" data-width="75%"></div></div>
       </div>
       <div class="competence-item">
-        <label>Gestion de Projet <span>40%</span></label>
-        <div class="progress-bar">
-          <div class="progress-fill" data-width="40%"></div>
-        </div>
+        <label>Gestion de Projet & Coordination <span>65%</span></label>
+        <div class="progress-bar"><div class="progress-fill" data-width="65%"></div></div>
       </div>
       <div class="competence-item">
-        <label>Travail d'Équipe <span>70%</span></label>
-        <div class="progress-bar">
-          <div class="progress-fill" data-width="70%"></div>
-        </div>
+        <label>Résolution de Problèmes <span>65%</span></label>
+        <div class="progress-bar"><div class="progress-fill" data-width="65%"></div></div>
       </div>
       <div class="competence-item">
-        <label>Prise de Décision <span>45%</span></label>
-        <div class="progress-bar">
-          <div class="progress-fill" data-width="45%"></div>
-        </div>
+        <label>Leadership Collaboratif <span>55%</span></label>
+        <div class="progress-bar"><div class="progress-fill" data-width="55%"></div></div>
       </div>
       <div class="competence-item">
-        <label>Résolution de Problèmes <span>50%</span></label>
-        <div class="progress-bar">
-          <div class="progress-fill" data-width="50%"></div>
-        </div>
+        <label>Prise de Décision Opérationnelle <span>55%</span></label>
+        <div class="progress-bar"><div class="progress-fill" data-width="55%"></div></div>
       </div>
     </div>
 
     <!-- Card 2: Compétences Business -->
-    <div class="competence-card">
+    <div class="competence-card" data-category="business">
       <h3>
         <div class="icon" style="background: #ddd6fe; color: #7c3aed;">
           <i class="fas fa-chart-pie"></i>
         </div>
-        Compétences Business
+        Stratégie & Business
       </h3>
       <div class="competence-item">
-        <label>Analyse Stratégique <span>40%</span></label>
-        <div class="progress-bar">
-          <div class="progress-fill" data-width="40%"></div>
-        </div>
+        <label>Analyse Stratégique d'Entreprise <span>65%</span></label>
+        <div class="progress-bar"><div class="progress-fill" data-width="65%"></div></div>
       </div>
       <div class="competence-item">
-        <label>Marketing 4P <span>40%</span></label>
-        <div class="progress-bar">
-          <div class="progress-fill" data-width="40%"></div>
-        </div>
+        <label>Marketing Mix (4P) & Positionnement <span>65%</span></label>
+        <div class="progress-bar"><div class="progress-fill" data-width="65%"></div></div>
       </div>
       <div class="competence-item">
-        <label>Gestion Financière <span>40%</span></label>
-        <div class="progress-bar">
-          <div class="progress-fill" data-width="40%"></div>
-        </div>
+        <label>Gestion Financière & Budgétaire <span>55%</span></label>
+        <div class="progress-bar"><div class="progress-fill" data-width="55%"></div></div>
       </div>
       <div class="competence-item">
-        <label>Étude de Marché <span>35%</span></label>
-        <div class="progress-bar">
-          <div class="progress-fill" data-width="35%"></div>
-        </div>
+        <label>Étude de Marché & Concurrence <span>60%</span></label>
+        <div class="progress-bar"><div class="progress-fill" data-width="60%"></div></div>
       </div>
       <div class="competence-item">
-        <label>Business Development <span>30%</span></label>
-        <div class="progress-bar">
-          <div class="progress-fill" data-width="30%"></div>
-        </div>
+        <label>Prospection & Business Development <span>55%</span></label>
+        <div class="progress-bar"><div class="progress-fill" data-width="55%"></div></div>
       </div>
     </div>
 
-    <!-- Card 3: Compétences Techniques -->
-    <div class="competence-card">
+    <!-- Card 3: Outils d'Analyses Décisionnelles -->
+    <div class="competence-card" data-category="tools">
+      <h3>
+        <div class="icon" style="background: #fef3c7; color: #d97706;">
+          <i class="fas fa-brain"></i>
+        </div>
+        Outils d'Analyses Décisionnelles
+      </h3>
+      <div class="competence-item">
+        <label>Matrice Eisenhower (Priorisation) <span>75%</span></label>
+        <span class="tool-info-tag">Distinction urgent vs important pour une gestion optimale du temps</span>
+        <div class="progress-bar"><div class="progress-fill" data-width="75%"></div></div>
+      </div>
+      <div class="competence-item">
+        <label>Analyse SWOT (Forces, Faiblesses, Opportunités, Menaces) <span>70%</span></label>
+        <span class="tool-info-tag">Diagnostic interne et externe pour orienter la décision stratégique</span>
+        <div class="progress-bar"><div class="progress-fill" data-width="70%"></div></div>
+      </div>
+      <div class="competence-item">
+        <label>Analyse PESTEL (Macro-environnement) <span>65%</span></label>
+        <span class="tool-info-tag">Veille politique, économique, sociale, technologique, écologique, légale</span>
+        <div class="progress-bar"><div class="progress-fill" data-width="65%"></div></div>
+      </div>
+      <div class="competence-item">
+        <label>5 Forces de Porter (Intensité concurrentielle) <span>60%</span></label>
+        <span class="tool-info-tag">Évaluation des menaces et du pouvoir de négociation des parties prenantes</span>
+        <div class="progress-bar"><div class="progress-fill" data-width="60%"></div></div>
+      </div>
+      <div class="competence-item">
+        <label>Loi de Pareto (Règle des 80/20) <span>65%</span></label>
+        <span class="tool-info-tag">Identification des 20% d'actions produisant 80% des résultats</span>
+        <div class="progress-bar"><div class="progress-fill" data-width="65%"></div></div>
+      </div>
+      <div class="competence-item">
+        <label>Modèle McKinsey 7S <span>50%</span></label>
+        <span class="tool-info-tag">Cohérence entre stratégie, structure, systèmes et compétences</span>
+        <div class="progress-bar"><div class="progress-fill" data-width="50%"></div></div>
+      </div>
+    </div>
+
+    <!-- Card 4: Outils Numériques & Bureautique -->
+    <div class="competence-card" data-category="tech">
       <h3>
         <div class="icon" style="background: #fce7f3; color: #ec4899;">
-          <i class="fas fa-chart-bar"></i>
+          <i class="fas fa-laptop-code"></i>
         </div>
-        Compétences Techniques & Design
+        Outils Numériques & Bureautique
       </h3>
       <div class="competence-item">
-        <label>Pack Office (Excel, PowerPoint, Word) <span>55%</span></label>
-        <div class="progress-bar">
-          <div class="progress-fill" data-width="55%"></div>
-        </div>
+        <label>Pack Office (Excel, PowerPoint, Word) <span>70%</span></label>
+        <div class="progress-bar"><div class="progress-fill" data-width="70%"></div></div>
       </div>
       <div class="competence-item">
-        <label>Google Agenda, outils de planification <span>65%</span></label>
-        <div class="progress-bar">
-          <div class="progress-fill" data-width="65%"></div>
-        </div>
+        <label>Google Workspace (Agenda, Docs, Drive) <span>75%</span></label>
+        <div class="progress-bar"><div class="progress-fill" data-width="75%"></div></div>
       </div>
       <div class="competence-item">
-        <label>CANVA <span>60%</span></label>
-        <div class="progress-bar">
-          <div class="progress-fill" data-width="60%"></div>
-        </div>
-      </div>
-      </div> <!-- ✅ FERMETURE DE LA CARD 3 (Compétences Techniques) -->
-      
-    <!-- Card 4: Compétences Transversales -->
-    <div class="competence-card">
-      <h3>
-        <div class="icon" style="background: #dcfce7; color: #10b981;">
-          <i class="fas fa-layer-group"></i>
-        </div>
-        Compétences Transversales
-      </h3>
-      <div class="competence-item">
-        <label>Communication Orale <span>65%</span></label>
-        <div class="progress-bar">
-          <div class="progress-fill" data-width="65%"></div>
-        </div>
+        <label>Canva (Design & Supports de présentation) <span>70%</span></label>
+        <div class="progress-bar"><div class="progress-fill" data-width="70%"></div></div>
       </div>
       <div class="competence-item">
-        <label>Communication Écrite <span>50%</span></label>
-        <div class="progress-bar">
-          <div class="progress-fill" data-width="50%"></div>
-        </div>
-      </div>
-      <div class="competence-item">
-        <label>Français Professionnel <span>75%</span></label>
-        <div class="progress-bar">
-          <div class="progress-fill" data-width="75%"></div>
-        </div>
-      </div>
-      <div class="competence-item">
-        <label>Anglais Professionnel <span>35%</span></label>
-        <div class="progress-bar">
-          <div class="progress-fill" data-width="35%"></div>
-        </div>
-      </div>
-      <div class="competence-item">
-        <label>Adaptabilité <span>90%</span></label>
-        <div class="progress-bar">
-          <div class="progress-fill" data-width="90%"></div>
-        </div>
-      </div>
-      <div class="competence-item">
-        <label>Esprit d'Initiative <span>85%</span></label>
-        <div class="progress-bar">
-          <div class="progress-fill" data-width="85%"></div>
-        </div>
+        <label>Gestion et Suivi de caisse <span>75%</span></label>
+        <div class="progress-bar"><div class="progress-fill" data-width="75%"></div></div>
       </div>
     </div>
 
-    <!-- Card 5: Outils d'un manager -->
-    <div class="competence-card">
+    <!-- Card 5: Soft Skills & Langues -->
+    <div class="competence-card" data-category="tech">
       <h3>
         <div class="icon" style="background: #dcfce7; color: #10b981;">
-          <i class="fas fa-layer-group"></i>
+          <i class="fas fa-comments"></i>
         </div>
-        Niveau de maîtrise des outils d'analyses
+        Soft Skills & Communication
       </h3>
       <div class="competence-item">
-        <label>Eisenhower <span>65%</span></label>
-        <div class="progress-bar">
-          <div class="progress-fill" data-width="65%"></div>
-        </div>
+        <label>Adaptabilité & Flexibilité <span>90%</span></label>
+        <div class="progress-bar"><div class="progress-fill" data-width="90%"></div></div>
       </div>
       <div class="competence-item">
-        <label>PESTEL <span>50%</span></label>
-        <div class="progress-bar">
-          <div class="progress-fill" data-width="50%"></div>
-        </div>
+        <label>Esprit d'Initiative & Proactivité <span>85%</span></label>
+        <div class="progress-bar"><div class="progress-fill" data-width="85%"></div></div>
       </div>
       <div class="competence-item">
-        <label>SOWT <span>65%</span></label>
-        <div class="progress-bar">
-          <div class="progress-fill" data-width="65%"></div>
-        </div>
+        <label>Français Professionnel <span>85%</span></label>
+        <div class="progress-bar"><div class="progress-fill" data-width="85%"></div></div>
       </div>
       <div class="competence-item">
-        <label> 5 F de PORTER <span>40%</span></label>
-        <div class="progress-bar">
-          <div class="progress-fill" data-width="40%"></div>
-        </div>
+        <label>Communication Orale & Médiation <span>75%</span></label>
+        <div class="progress-bar"><div class="progress-fill" data-width="75%"></div></div>
       </div>
       <div class="competence-item">
-        <label>Diagramme de PARETO <span>40%</span></label>
-        <div class="progress-bar">
-          <div class="progress-fill" data-width="40%"></div>
-        </div>
-      </div>
-      <div class="competence-item">
-        <label> KINSEY <span>35%</span></label>
-        <div class="progress-bar">
-          <div class="progress-fill" data-width="35%"></div>
-        </div>
+        <label>Anglais Professionnel <span>55%</span></label>
+        <div class="progress-bar"><div class="progress-fill" data-width="55%"></div></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ================= CENTRES D'INTERET ================= -->
-
 <section class="interets-section" id="interets">
   <h2 class="section-title">Centres d'Intérêt</h2>
-  <p class="section-subtitle">Passions et veille professionnelle</p>
+  <p class="section-subtitle">Passions personnelles qui forgent endurance, équilibre et ouverture d'esprit</p>
 
   <div class="interets-grid">
     <div class="interet-card">
-      <div class="interet-icon">
-        <i class="fas fa-chart-line"></i>
-      </div>
+      <div class="interet-icon"><i class="fas fa-chart-line"></i></div>
       <h3>Entrepreneuriat</h3>
-      <p>Veille sur les startups et l'innovation business</p>
+      <p>Veille active sur les modèles économiques émergents, l'innovation locale et les startups malgaches.</p>
     </div>
 
     <div class="interet-card">
-      <div class="interet-icon">
-        <i class="fas fa-handshake"></i>
-      </div>
+      <div class="interet-icon"><i class="fas fa-handshake"></i></div>
       <h3>Networking</h3>
-      <p>Participation à des événements professionnels</p>
+      <p>Participation à des rencontres professionnelles, salons et ateliers de partage d'expériences managériales.</p>
     </div>
 
     <div class="interet-card">
-      <div class="interet-icon">
-        <i class="fas fa-person-running"></i>
-      </div>
-      <h3>Sport</h3>
-      <p>Trail & Randonnée | Course à pied </p>
+      <div class="interet-icon"><i class="fas fa-person-running"></i></div>
+      <h3>Sport & Trail</h3>
+      <p>Course à pied et randonnées en nature : développement de la ténacité, de l'endurance et du dépassement de soi.</p>
     </div>
 
     <div class="interet-card">
-      <div class="interet-icon">
-        <i class="fas fa-plane"></i>
-      </div>
-      <h3>Voyage</h3>
-      <p>Passion pour le voyage, l’exploration culturelle et la compréhension des environnements socio-économiques</p>
+      <div class="interet-icon"><i class="fas fa-plane"></i></div>
+      <h3>Voyage & Découverte</h3>
+      <p>Exploration culturelle, compréhension des réalités socio-économiques et curiosité pour les traditions locales.</p>
     </div>
 
     <div class="interet-card">
-      <div class="interet-icon">
-        <i class="fas fa-spa"></i>
-      </div>
-      <h3>Massages</h3>
-      <p>Massage Californien : débutant</p>
-      <span class="year">Pratique de 100 massages (en cours)</span>
+      <div class="interet-icon"><i class="fas fa-spa"></i></div>
+      <h3>Massages & Bien-être</h3>
+      <p>Pratique du massage californien : écoute attentive, sens du toucher, gestion du stress et recherche d'harmonie.</p>
+      <span class="year" style="display:inline-block; margin-top:8px;">Objectif : Pratique de 100 massages (en cours)</span>
     </div>
   </div>
 </section>
-<!-- ================= CONTACT SECTION ================= -->
 
+<!-- ================= CONTACT SECTION ================= -->
 <section class="contact-section" id="contact">
+  <h2 class="section-title">Prenons Contact</h2>
+  <p class="section-subtitle">Une opportunité, un projet ou une question ? Échangeons dès maintenant.</p>
+
+  <!-- Cartes de contact rapide -->
+  <div class="contact-fast-grid">
+    <div class="contact-info-card">
+      <div class="card-title"><i class="fas fa-envelope" style="color:#60a5fa;"></i> Email</div>
+      <div class="card-value">rollandrandria102@gmail.com</div>
+      <button class="copy-btn" onclick="copyContact('rollandrandria102@gmail.com', this, 'Email')">
+        <i class="fas fa-copy"></i> Copier l'adresse
+      </button>
+    </div>
+
+    <div class="contact-info-card">
+      <div class="card-title"><i class="fas fa-phone" style="color:#34d399;"></i> Téléphone</div>
+      <div class="card-value">+261 34 92 895 56</div>
+      <button class="copy-btn" onclick="copyContact('+261349289556', this, 'Numéro')">
+        <i class="fas fa-copy"></i> Copier le numéro
+      </button>
+    </div>
+
+    <div class="contact-info-card">
+      <div class="card-title"><i class="fas fa-map-marker-alt" style="color:#f87171;"></i> Localisation</div>
+      <div class="card-value">Ambositra & Antananarivo, Madagascar</div>
+      <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Disponible pour missions sur place ou à distance</div>
+    </div>
+  </div>
+
   <div class="contact-card">
-    <p>Vous souhaitez collaborer ou en savoir plus sur mon parcours ?</p>
-    <button class="contact-btn" onclick="scriptEmail()">
-      <i class="fas fa-envelope"></i>Envoyer un message 
-    </button>
+    <p>Vous souhaitez collaborer ou discuter d'un projet managérial ?</p>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:15px; margin-top:15px;">
+      <button class="contact-btn" onclick="scriptEmail()" style="cursor: pointer;">
+        <i class="fas fa-paper-plane"></i> Envoyer un email direct
+      </button>
+      <a href="https://www.linkedin.com/in/rolland-randriamanampy-6a6606247" target="_blank" rel="noopener noreferrer" class="contact-btn" style="background:#0A66C2; color:white; box-shadow:none;">
+        <i class="fab fa-linkedin"></i> Profil LinkedIn
+      </a>
+      <a href="index.html" class="contact-btn" style="background:rgba(255,255,255,0.1); color:var(--text-primary); box-shadow:none;">
+        <i class="fas fa-home"></i> Retour aux liens officiels
+      </a>
+    </div>
   </div>
 </section>
 
 <!-- ================= FOOTER ================= -->
-
 <footer>
   <div class="footer-content">
     <div class="footer-section contact-info">
-      <h3>Contact</h3>
+      <h3>Rolland RANDRIAMANAMPY</h3>
+      <p><i class="fas fa-graduation-cap"></i> ISCAM Business School Madagascar</p>
       <p><i class="fas fa-envelope"></i> rollandrandria102@gmail.com</p>
-      <p><i class="fas fa-phone"></i> +261 34 92 895 56 / +261 38 03 038 038</p>
+      <p><i class="fas fa-phone"></i> +261 34 92 895 56</p>
       <p><i class="fas fa-map-marker-alt"></i> Lot IV J 27 Ambohibary, Ambositra 306, Madagascar</p>
     </div>
     <div class="footer-section social-links">
-      <h3>Suivez-moi</h3>
+      <h3>Réseaux Sociaux</h3>
       <div class="social-icons">
-        <a href="https://www.facebook.com/share/1JQ3F6FyAy/?mibextid=wwXIfr" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/rollandrandriamanampy" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@rothehitch" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-        <a href="https://www.linkedin.com/in/rolland-randriamanampy-6a6606247" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://strava.app.link/f7v9Wbh9E0b" target="_blank" aria-label="Strava"><i class="fab fa-strava"></i></a>
+        <a href="https://www.facebook.com/share/1JQ3F6FyAy/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/rollandrandriamanampy" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@rothehitch" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.linkedin.com/in/rolland-randriamanampy-6a6606247" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://strava.app.link/f7v9Wbh9E0b" target="_blank" rel="noopener noreferrer" aria-label="Strava"><i class="fab fa-strava"></i></a>
       </div>
     </div>
     <div class="footer-section legal">
-      <h3>Informations utiles</h3>
-      <p><a href="#contact">Me contacter</a></p>
-      <p><a href="#parcours">Parcours & Réalisations</a></p>
-      <p><a href="#">Télécharger mon CV</a></p>
-      <p><a href="#">Mentions légales</a></p>
+      <h3>Navigation Rapide</h3>
+      <p><a href="index.html">← Accueil Liens Officiels</a></p>
+      <p><a href="#parcours">Parcours & Formations</a></p>
+      <p><a href="#projets">Projets & Réalisations</a></p>
+      <p><a href="#competences">Compétences & Outils</a></p>
+      <p><a href="#" onclick="openCvModal(); return false;">Synthèse CV en ligne</a></p>
     </div>
   </div>
   <div class="footer-bottom">
-    <p class="copyright">© 2026 RoTheHitch.Lab Tous droits réservés.</p>
-    <p class="tagline">DESIGNED BY ME</p>
+    <p class="copyright">© 2026 RoTheHitch.Lab — Rolland RANDRIAMANAMPY. Tous droits réservés.</p>
+    <p class="tagline">PORTFOLIO PROFESSIONNEL EN MANAGEMENT</p>
   </div>
 </footer>
 
+<!-- Bouton Retour en Haut -->
+<button class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()" title="Haut de page">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- ================= CV MODAL ================= -->
+<div class="modal-overlay" id="cvModal" onclick="closeCvModalOnBackdrop(event)">
+  <div class="modal-window">
+    <button class="modal-close-btn" onclick="closeCvModal()" title="Fermer">&times;</button>
+    <div style="border-bottom: 2px solid var(--border-color); padding-bottom: 15px; margin-bottom: 20px;">
+      <h2 style="font-size: 22px; margin-bottom: 5px; color: var(--text-primary);">Rolland RANDRIAMANAMPY</h2>
+      <p style="color: var(--text-secondary); font-size: 14px;">Étudiant en Management et Développement d'Entreprise (MDE) • ISCAM Business School</p>
+      <p style="font-size: 13px; color: var(--text-tertiary); margin-top: 4px;">
+        <i class="fas fa-map-marker-alt"></i> Madagascar • <i class="fas fa-envelope"></i> rollandrandria102@gmail.com • <i class="fas fa-phone"></i> +261 34 92 895 56
+      </p>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <h3 style="font-size: 16px; color: var(--accent-primary); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Profil & Synthèse</h3>
+      <p style="font-size: 13.5px; line-height: 1.6; color: var(--text-secondary);">
+        Étudiant dynamique et rigoureux en 2ème année de Licence en Management et Développement d'Entreprise. Doté d'expériences réussies en coordination de projet, prospection commerciale (MBO), tenue de caisse et médiation culturelle. Fort intérêt pour le développement des organisations et la prise de décision analytique.
+      </p>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <h3 style="font-size: 16px; color: var(--accent-primary); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Expériences Professionnelles</h3>
+      <div style="margin-bottom: 12px;">
+        <div style="display:flex; justify-content:space-between; font-weight:700; font-size:14px;">
+          <span>Stage Marketing Culturel & Gestion de Projet</span>
+          <span style="font-size:12px; color:var(--text-tertiary);">Avr. 2025 - Août 2025</span>
+        </div>
+        <div style="font-size:13px; color:var(--text-secondary); margin-bottom: 4px;">ID'OM ART CONCEPT SARL & ISCAM Business School</div>
+        <p style="font-size:12.5px; color:var(--text-secondary); line-height:1.4;">Coordination interne, prospection de partenaires, accueil de délégations internationales, conception d'un espace muséal et application de la méthode MBO.</p>
+      </div>
+
+      <div>
+        <div style="display:flex; justify-content:space-between; font-weight:700; font-size:14px;">
+          <span>Responsable de Point de Vente</span>
+          <span style="font-size:12px; color:var(--text-tertiary);">Fév. 2024 - Août 2024</span>
+        </div>
+        <div style="font-size:13px; color:var(--text-secondary); margin-bottom: 4px;">Petit Musée de la Marqueterie (ID'OM ART CONCEPT)</div>
+        <p style="font-size:12.5px; color:var(--text-secondary); line-height:1.4;">Accueil, merchandising visuel, négociation et vente d'œuvres d'art, tenue sans faille du journal de caisse.</p>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <h3 style="font-size: 16px; color: var(--accent-primary); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Formations</h3>
+      <div style="margin-bottom: 10px;">
+        <div style="display:flex; justify-content:space-between; font-weight:700; font-size:14px;">
+          <span>Licence en Management et Développement d'Entreprise</span>
+          <span style="font-size:12px; color:var(--text-tertiary);">2023 - En cours</span>
+        </div>
+        <div style="font-size:13px; color:var(--text-secondary);">ISCAM Business School Madagascar</div>
+      </div>
+      <div>
+        <div style="display:flex; justify-content:space-between; font-weight:700; font-size:14px;">
+          <span>Baccalauréat Scientifique (Série D)</span>
+          <span style="font-size:12px; color:var(--text-tertiary);">2020</span>
+        </div>
+        <div style="font-size:13px; color:var(--text-secondary);">Lycée RAKOTOARISOA Ambositra (Programme international PASCH)</div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 25px;">
+      <h3 style="font-size: 16px; color: var(--accent-primary); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Outils d'Analyse & Compétences Clés</h3>
+      <div style="display:flex; flex-wrap:wrap; gap:6px;">
+        <span class="chip chip-hard">Matrice Eisenhower</span>
+        <span class="chip chip-hard">SWOT</span>
+        <span class="chip chip-hard">PESTEL</span>
+        <span class="chip chip-hard">5 Forces de Porter</span>
+        <span class="chip chip-hard">Loi de Pareto</span>
+        <span class="chip chip-hard">Management MBO</span>
+        <span class="chip chip-hard">Pack Office / Excel</span>
+        <span class="chip chip-soft">Communication</span>
+        <span class="chip chip-soft">Rigueur & Analyse</span>
+      </div>
+    </div>
+
+    <div style="display:flex; gap:12px; justify-content:flex-end;">
+      <button onclick="window.print()" class="contact-btn" style="cursor:pointer; display:inline-flex; align-items:center; gap:8px;">
+        <i class="fas fa-print"></i> Imprimer / Enregistrer en PDF
+      </button>
+      <button onclick="closeCvModal()" class="contact-btn" style="background:rgba(255,255,255,0.15); color:var(--text-primary); cursor:pointer;">
+        Fermer
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= JAVASCRIPT ================= -->
 <script>
-// ============ TOGGLE THEME (Mode Clair/Sombre) ============
+// ============ TOGGLE THEME ============
 function toggleTheme() {
   const body = document.body;
   const isLightMode = body.classList.contains('light-mode');
   const themeToggleBtn = document.querySelector('.theme-toggle i');
   
   if (isLightMode) {
-    // Passer au mode sombre
     body.classList.remove('light-mode');
     localStorage.setItem('theme', 'dark');
     if (themeToggleBtn) {
@@ -2005,7 +2748,6 @@ function toggleTheme() {
       themeToggleBtn.classList.add('fa-moon');
     }
   } else {
-    // Passer au mode clair
     body.classList.add('light-mode');
     localStorage.setItem('theme', 'light');
     if (themeToggleBtn) {
@@ -2015,11 +2757,9 @@ function toggleTheme() {
   }
 }
 
-// Charger le thème sauvegardé au démarrage
 window.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('theme') || 'dark';
   const themeToggleBtn = document.querySelector('.theme-toggle i');
-  
   if (savedTheme === 'light') {
     document.body.classList.add('light-mode');
     if (themeToggleBtn) {
@@ -2028,6 +2768,42 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
+// ============ READING PROGRESS & SCROLL ============
+window.addEventListener('scroll', () => {
+  const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+  
+  const progressBar = document.getElementById('reading-progress');
+  if (progressBar) {
+    progressBar.style.width = scrolled + '%';
+  }
+
+  // Scroll to Top button
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  if (scrollTopBtn) {
+    scrollTopBtn.style.display = winScroll > 350 ? 'flex' : 'none';
+  }
+
+  // Navbar shadow
+  const navbar = document.querySelector('.navbar');
+  if (navbar) {
+    if (winScroll > 50) {
+      navbar.style.background = document.body.classList.contains('light-mode') 
+        ? 'rgba(255, 255, 255, 0.98)' 
+        : 'rgba(26, 26, 46, 0.98)';
+      navbar.style.boxShadow = '0 0 25px rgba(0,0,0,0.2)';
+    } else {
+      navbar.style.background = '';
+      navbar.style.boxShadow = 'none';
+    }
+  }
+});
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
 // ============ ANIMATIONS AU SCROLL ============
 const observerOptions = {
@@ -2040,45 +2816,67 @@ const observer = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       entry.target.classList.add('animate');
       
-      // Animer les barres de progression
       if (entry.target.classList.contains('competence-card')) {
         const progressFills = entry.target.querySelectorAll('.progress-fill');
         progressFills.forEach((fill, index) => {
-          // Retirer la classe animated avant de la rajouter (pour réinitialiser l'animation)
           fill.classList.remove('animated');
-          // Forcer le navigateur à reconnaître le changement
           void fill.offsetWidth;
-          
           setTimeout(() => {
             const width = fill.getAttribute('data-width');
-            // Définir la variable CSS pour l'animation
             fill.style.setProperty('--progress-width', width);
             fill.style.width = width;
             fill.classList.add('animated');
-          }, index * 100);
-        });
-      }
-    } else {
-      // Quand l'élément n'est plus visible
-      entry.target.classList.remove('animate');
-      
-      // Réinitialiser les barres de progression
-      if (entry.target.classList.contains('competence-card')) {
-        const progressFills = entry.target.querySelectorAll('.progress-fill');
-        progressFills.forEach((fill) => {
-          fill.classList.remove('animated');
-          fill.style.width = '0';
-          fill.style.opacity = '0';
+          }, index * 80);
         });
       }
     }
   });
 }, observerOptions);
 
-// Observer les éléments
-document.querySelectorAll('.timeline-item, .competence-card, .interet-card, .contact-card').forEach(el => {
+document.querySelectorAll('.timeline-item, .competence-card, .interet-card, .projet-card, .contact-card, .metric-card').forEach(el => {
   observer.observe(el);
 });
+
+// ============ TABS PARCOURS ============
+function showTab(type, buttonEl) {
+  const formationWrapper = document.getElementById('formation-wrapper');
+  const experienceWrapper = document.getElementById('experience-wrapper');
+  
+  if (type === 'all') {
+    formationWrapper.style.display = 'block';
+    experienceWrapper.style.display = 'block';
+  } else if (type === 'formation') {
+    formationWrapper.style.display = 'block';
+    experienceWrapper.style.display = 'none';
+  } else if (type === 'experience') {
+    formationWrapper.style.display = 'none';
+    experienceWrapper.style.display = 'block';
+  }
+
+  document.querySelectorAll('.tabs .tab-btn').forEach(btn => btn.classList.remove('active'));
+  if (buttonEl) buttonEl.classList.add('active');
+}
+
+// ============ FILTER COMPETENCES ============
+function filterCompetences(category, btnEl) {
+  const cards = document.querySelectorAll('.competence-card');
+  cards.forEach(card => {
+    if (category === 'all' || card.getAttribute('data-category') === category) {
+      card.style.display = 'block';
+      // Trigger animation for newly displayed cards
+      const progressFills = card.querySelectorAll('.progress-fill');
+      progressFills.forEach(fill => {
+        const width = fill.getAttribute('data-width');
+        fill.style.width = width;
+      });
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  document.querySelectorAll('.comp-filter-btn').forEach(btn => btn.classList.remove('active'));
+  if (btnEl) btnEl.classList.add('active');
+}
 
 // ============ HAMBURGER MENU ============
 const hamburgerBtn = document.getElementById('hamburgerBtn');
@@ -2096,36 +2894,55 @@ function closeMobileNav() {
   document.body.style.overflow = '';
 }
 
-// Fonction pour afficher/masquer les onglets
-function showTab(tabName) {
-  document.getElementById('formation').style.display = 'none';
-  document.getElementById('experience').style.display = 'none';
-  document.getElementById(tabName).style.display = 'block';
-
-  const buttons = document.querySelectorAll('.tab-btn');
-  buttons.forEach(btn => btn.classList.remove('active'));
-  event.target.closest('.tab-btn').classList.add('active');
+// ============ COPY CONTACT ============
+function copyContact(text, buttonEl, label) {
+  navigator.clipboard.writeText(text).then(() => {
+    const originalHTML = buttonEl.innerHTML;
+    buttonEl.innerHTML = '<i class="fas fa-check" style="color:#10b981;"></i> ' + label + ' copié !';
+    buttonEl.style.borderColor = '#10b981';
+    setTimeout(() => {
+      buttonEl.innerHTML = originalHTML;
+      buttonEl.style.borderColor = '';
+    }, 2500);
+  }).catch(() => {
+    alert(label + ' : ' + text);
+  });
 }
 
-// Fonction pour envoyer un message
+// ============ CV MODAL ============
+function openCvModal() {
+  const modal = document.getElementById('cvModal');
+  if (modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeCvModal() {
+  const modal = document.getElementById('cvModal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+function closeCvModalOnBackdrop(e) {
+  if (e.target && e.target.id === 'cvModal') {
+    closeCvModal();
+  }
+}
+
+// ============ SCRIPT EMAIL ============
 function scriptEmail() {
   const email = 'rollandrandria102@gmail.com';
-  const subject = 'Collaboration ou information sur votre parcours';
+  const subject = 'Opportunité ou collaboration en Management';
   window.location.href = 'mailto:' + email + '?subject=' + encodeURIComponent(subject);
 }
-
-// Animation au scroll de la navbar
-window.addEventListener('scroll', () => {
-  const navbar = document.querySelector('.navbar');
-  if (window.scrollY > 50) {
-    navbar.style.background = 'rgba(26, 26, 46, 0.98)';
-    navbar.style.boxShadow = '0 0 30px rgba(197, 255, 0, 0.2)';
-  } else {
-    navbar.style.background = 'rgba(26, 26, 46, 0.95)';
-    navbar.style.boxShadow = 'none';
-  }
-});
 </script>
+
+</body>
+</html>
+
 
 
 
