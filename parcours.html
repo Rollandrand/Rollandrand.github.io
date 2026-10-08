@@ -17,12 +17,8 @@
    🫧 3D CLAYMORPHIC / GLASSMORPHIC DESIGN SYSTEM (INSPIRED BY GLASS.JFIF)
    ========================================================================== */
 :root {
-  /* Studio Ambiance from Fond.jfif */
-  --bg-primary: 
-    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(124, 58, 237, 0.22) 0%, transparent 70%),
-    radial-gradient(circle at 85% 25%, rgba(254, 215, 170, 0.3) 0%, transparent 50%),
-    linear-gradient(160deg, rgba(248, 246, 252, 0.4) 0%, rgba(222, 212, 239, 0.5) 100%),
-    url('dreamy_bg.jpg') no-repeat center center / cover fixed;
+  /* 🪐 Space Theme from reference image */
+  --bg-primary: #03050b;
   --bg-secondary: rgba(255, 255, 255, 0.9);
   --bg-tertiary: rgba(255, 255, 255, 0.95);
   
@@ -79,6 +75,16 @@ body.dark-mode {
   --card-shadow-hover: 
     0 35px 75px -15px rgba(0, 0, 0, 0.65),
     inset 0 1px 3px rgba(255, 255, 255, 0.2);
+}
+
+#space-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
 }
 
 html {
@@ -841,14 +847,15 @@ section {
   font-size: 28px;
   font-weight: 800;
   text-align: center;
-  color: var(--text-primary);
+  color: #ffffff;
+  text-shadow: 0 0 25px rgba(56, 189, 248, 0.45);
   margin-bottom: 8px;
   letter-spacing: -0.4px;
 }
 
 .section-subtitle {
   font-size: 15px;
-  color: var(--text-secondary);
+  color: #cbd5e1;
   text-align: center;
   max-width: 650px;
   margin: 0 auto 35px;
@@ -1710,6 +1717,9 @@ body.dark-mode .pro-footer-bottom {
 </head>
 
 <body>
+
+<!-- 🪐 3D Space Particle Canvas (2026 Inspiration) -->
+<canvas id="space-canvas"></canvas>
 
 <!-- 🫧 Suspended Glass & Emerald Bubbles (Glass.jfif style) -->
 <div class="bubble-scene">
@@ -2741,6 +2751,9 @@ function scriptEmail() {
   window.location.href = 'mailto:' + email + '?subject=' + encodeURIComponent(subject);
 }
 </script>
+
+<!-- 🪐 3D Space Particle Engine -->
+<script src="space-particles.js"></script>
 
 </body>
 </html>

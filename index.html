@@ -31,6 +31,16 @@
       box-sizing: border-box;
     }
 
+    #space-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+
     body {
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       margin: 0;
@@ -40,13 +50,7 @@
       justify-content: center;
       min-height: 100vh;
       color: var(--text-main);
-      background: 
-        radial-gradient(ellipse 70% 50% at 50% 100%, rgba(124, 58, 237, 0.22) 0%, transparent 70%),
-        radial-gradient(circle at 85% 25%, rgba(254, 215, 170, 0.3) 0%, transparent 50%),
-        linear-gradient(160deg, rgba(248, 246, 252, 0.4) 0%, rgba(222, 212, 239, 0.5) 100%),
-        url('dreamy_bg.jpg') no-repeat center center;
-      background-size: cover;
-      background-attachment: fixed;
+      background: #03050b;
       position: relative;
       overflow-x: hidden;
     }
@@ -700,6 +704,9 @@
 
 <body>
 
+<!-- 🪐 3D Space Particle Canvas (2026 Inspiration) -->
+<canvas id="space-canvas"></canvas>
+
 <!-- 🫧 Suspended Glass & Emerald Bubbles -->
 <div class="bubble-scene">
   <div class="bubble bubble-emerald-large"></div>
@@ -848,6 +855,9 @@ document.addEventListener('click', function(e){
   }
 });
 </script>
+
+<!-- 🪐 3D Space Particle Engine -->
+<script src="space-particles.js"></script>
 
 </body>
 </html>

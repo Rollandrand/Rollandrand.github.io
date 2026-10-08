@@ -4,24 +4,52 @@
   <meta charset="utf-8">
   <title>Mes vidéos</title>
   <style>
+    #space-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+
     body {
-      background: 
-        radial-gradient(ellipse 70% 50% at 50% 100%, rgba(124, 58, 237, 0.25) 0%, transparent 70%),
-        radial-gradient(circle at 85% 25%, rgba(254, 215, 170, 0.35) 0%, transparent 50%),
-        linear-gradient(160deg, rgba(248, 246, 252, 0.35) 0%, rgba(222, 212, 239, 0.45) 100%),
-        url('dreamy_bg.jpg') no-repeat center center fixed;
-      background-size: cover;
+      background: #03050b;
       font-family: 'Segoe UI', Arial, sans-serif;
       color: #111827;
       margin: 0;
       padding: 2rem;
+      position: relative;
     }
 
     h1 {
       text-align: center;
       margin-bottom: 2rem;
-      font-size: 2rem;
-      color: #2563eb;
+      font-size: 2.2rem;
+      color: #ffffff;
+      text-shadow: 0 0 25px rgba(56, 189, 248, 0.5);
+      letter-spacing: -0.5px;
+    }
+
+    .link {
+      display: inline-block;
+      margin: 2rem auto 0;
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: 600;
+      background: rgba(15, 23, 42, 0.75);
+      padding: 10px 20px;
+      border-radius: 14px;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      backdrop-filter: blur(12px);
+      transition: all 0.25s ease;
+    }
+    .link:hover {
+      background: #2563eb;
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
     }
     .video-grid {
       display: grid;
@@ -124,6 +152,9 @@
   </style>
 </head>
 <body>
+  <!-- 🪐 3D Space Particle Canvas (2026 Inspiration) -->
+  <canvas id="space-canvas"></canvas>
+
   <h1>MES VIDEOS</h1>
   <div class="video-grid">
     <!-- Carte vidéo 1 -->
@@ -177,5 +208,8 @@
       }
     }
   </script>
+
+  <!-- 🪐 3D Space Particle Engine -->
+  <script src="space-particles.js"></script>
 </body>
 </html>
