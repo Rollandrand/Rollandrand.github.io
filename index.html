@@ -31,28 +31,296 @@
       box-sizing: border-box;
     }
 
-    #space-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 0;
-      pointer-events: none;
-    }
-
     body {
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       margin: 0;
-      padding: 40px 16px;
+      padding: 14px 16px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      color: var(--text-main);
+      background: #ffffff url('topographic_bg.jpg') repeat center center fixed;
+      background-size: 700px auto;
+      position: relative;
+      overflow-x: hidden;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark-mode {
+      background: 
+        linear-gradient(rgba(11, 15, 25, 0.94), rgba(11, 15, 25, 0.94)),
+        url('topographic_bg.jpg') repeat center center fixed;
+      color: #f8fafc;
+    }
+    body.dark-mode .container {
+      background: rgba(17, 24, 39, 0.94);
+      border-color: rgba(255, 255, 255, 0.12);
+      color: #f8fafc;
+    }
+    body.dark-mode h1,
+    body.dark-mode .identity-title {
+      color: #f8fafc;
+    }
+    body.dark-mode .bio,
+    body.dark-mode .social-section-title,
+    body.dark-mode footer {
+      color: #94a3b8;
+    }
+    body.dark-mode .identity-card {
+      background: rgba(30, 41, 59, 0.85);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+    body.dark-mode .pearl-splash-backdrop {
+      background: radial-gradient(circle at 75% 20%, rgba(30, 41, 59, 0.85), rgba(15, 23, 42, 0.92));
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* ========================================= */
+    /* 🧭 PINTEREST CHROMATIC CAPSULE NAVBAR     */
+    /* ========================================= */
+    .navbar-wrapper {
+      position: sticky;
+      top: 14px;
+      z-index: 1000;
+      padding: 0;
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      max-width: 1240px;
+    }
+
+    .navbar {
+      width: 100%;
+      background: rgba(14, 18, 26, 0.90);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      padding: 7px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 
+        0 20px 45px -10px rgba(0, 0, 0, 0.45),
+        0 8px 20px -4px rgba(0, 0, 0, 0.3),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .navbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* 1. Brand Logo with Chromatic Rainbow Iridescent Ring */
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      padding: 3px 10px 3px 4px;
+      border-radius: 9999px;
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .nav-brand:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .chromatic-ring {
+      position: relative;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      padding: 2.2px;
+      background: conic-gradient(
+        from 180deg at 50% 50%,
+        #ff3b30,
+        #ff9500,
+        #ffcc00,
+        #34c759,
+        #32ade6,
+        #007aff,
+        #5856d6,
+        #af52de,
+        #ff2d55,
+        #ff3b30
+      );
+      box-shadow: 
+        0 0 14px rgba(255, 149, 0, 0.4),
+        0 0 18px rgba(0, 122, 255, 0.35);
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      color: var(--text-main);
-      background: #03050b;
-      position: relative;
-      overflow-x: hidden;
+      flex-shrink: 0;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+    }
+
+    .nav-brand:hover .chromatic-ring {
+      transform: scale(1.08) rotate(15deg);
+      box-shadow: 
+        0 0 22px rgba(255, 149, 0, 0.65),
+        0 0 28px rgba(0, 122, 255, 0.6);
+    }
+
+    .chromatic-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #2a3142 0%, #11141d 90%);
+      box-shadow: 
+        inset 0 1px 2px rgba(255, 255, 255, 0.35),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 13px;
+    }
+
+    .nav-brand-name {
+      font-weight: 700;
+      font-size: 13.5px;
+      color: #ffffff;
+      letter-spacing: -0.2px;
+      white-space: nowrap;
+    }
+
+    /* Nav Links Group - ALWAYS DISPLAYED ON THE NAVBAR */
+    .nav-links {
+      display: flex !important;
+      align-items: center;
+      gap: 3px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-shrink: 0;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 600;
+      font-size: 13px;
+      padding: 7px 11px;
+      border-radius: 9999px;
+      transition: all 0.22s ease;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .nav-links a.active-nav {
+      background: rgba(255, 255, 255, 0.22);
+      color: #ffffff;
+      box-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.3),
+        inset 0 1px 1px rgba(255, 255, 255, 0.25);
+    }
+
+    /* Mode Nuit et Jour Button */
+    .nav-theme-btn {
+      display: inline-flex !important;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+      padding: 6px 12px 6px 6px;
+      border-radius: 9999px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .nav-theme-btn:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .theme-icon-disc {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.16);
+      box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #fbbf24;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-theme-btn:hover .theme-icon-disc {
+      transform: rotate(20deg) scale(1.1);
+    }
+
+    @media (max-width: 1100px) {
+      .navbar {
+        padding: 6px 10px;
+        gap: 6px;
+      }
+      .nav-links a {
+        font-size: 12px;
+        padding: 6px 10px;
+      }
+      .nav-brand-name {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .navbar-wrapper {
+        top: 8px;
+        margin-bottom: 18px;
+      }
+      .navbar {
+        padding: 5px 8px;
+        gap: 4px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+      .navbar::-webkit-scrollbar {
+        display: none;
+      }
+      .nav-brand-name {
+        display: none;
+      }
+      .nav-links {
+        display: flex !important;
+        gap: 2px;
+      }
+      .nav-links a {
+        font-size: 11.5px;
+        padding: 6px 8px;
+      }
+      .nav-theme-btn .theme-label {
+        display: none;
+      }
+      .nav-theme-btn {
+        padding: 4px;
+        border-radius: 50%;
+      }
     }
 
     /* ========================================= */
@@ -704,9 +972,6 @@
 
 <body>
 
-<!-- 🪐 3D Space Particle Canvas (2026 Inspiration) -->
-<canvas id="space-canvas"></canvas>
-
 <!-- 🫧 Suspended Glass & Emerald Bubbles -->
 <div class="bubble-scene">
   <div class="bubble bubble-emerald-large"></div>
@@ -714,6 +979,37 @@
   <div class="bubble bubble-emerald-small"></div>
   <div class="bubble bubble-glass-left"></div>
   <div class="bubble bubble-pearl-tiny"></div>
+</div>
+
+<!-- ================= NAVBAR (PINTEREST FLOATING CHROMATIC CAPSULE DOCK) ================= -->
+<div class="navbar-wrapper">
+  <nav class="navbar">
+    <!-- 1. Rolland RANDRIAMANAMPY (with chromatic rainbow iridescent ring) -->
+    <a href="index.html" class="nav-brand" title="Rolland RANDRIAMANAMPY">
+      <div class="chromatic-ring">
+        <div class="chromatic-inner">
+          <i class="fas fa-home"></i>
+        </div>
+      </div>
+      <span class="nav-brand-name">Rolland RANDRIAMANAMPY</span>
+    </a>
+
+    <!-- 2 à 7. Accueil & Parcours & Projets & Compétences & Centres d'intérêts & Contact -->
+    <ul class="nav-links">
+      <li><a href="index.html" class="active-nav">Accueil</a></li>
+      <li><a href="parcours.html#parcours">Parcours</a></li>
+      <li><a href="parcours.html#projets">Projets</a></li>
+      <li><a href="parcours.html#competences">Compétences</a></li>
+      <li><a href="parcours.html#interets">Centres d'intérêts</a></li>
+      <li><a href="parcours.html#contact">Contact</a></li>
+    </ul>
+
+    <!-- 8. Mode nuit et jour -->
+    <button class="nav-theme-btn" onclick="toggleTheme()" title="Basculer le mode nuit et jour" id="navThemeToggleBtn">
+      <span class="theme-icon-disc"><i class="fas fa-moon"></i></span>
+      <span class="theme-label">Mode nuit et jour</span>
+    </button>
+  </nav>
 </div>
 
 <!-- 🌊 Pearl Splash + Main Container -->
@@ -819,6 +1115,41 @@
 </div>
 
 <script>
+// ============ TOGGLE THEME ============
+function toggleTheme() {
+  const body = document.body;
+  const isDarkMode = body.classList.contains('dark-mode');
+  const themeIcons = document.querySelectorAll('.theme-icon-disc i');
+  
+  if (isDarkMode) {
+    body.classList.remove('dark-mode');
+    localStorage.setItem('theme', 'light');
+    themeIcons.forEach(icon => {
+      icon.classList.remove('fa-sun');
+      icon.classList.add('fa-moon');
+    });
+  } else {
+    body.classList.add('dark-mode');
+    localStorage.setItem('theme', 'dark');
+    themeIcons.forEach(icon => {
+      icon.classList.remove('fa-moon');
+      icon.classList.add('fa-sun');
+    });
+  }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('theme');
+  const themeIcons = document.querySelectorAll('.theme-icon-disc i');
+  if (savedTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+    themeIcons.forEach(icon => {
+      icon.classList.remove('fa-moon');
+      icon.classList.add('fa-sun');
+    });
+  }
+});
+
 // 📞 Toast appel direct
 function callNumber() {
   const phoneNumber = "+261349289556";
@@ -855,9 +1186,6 @@ document.addEventListener('click', function(e){
   }
 });
 </script>
-
-<!-- 🪐 3D Space Particle Engine -->
-<script src="space-particles.js"></script>
 
 </body>
 </html>

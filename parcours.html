@@ -19,18 +19,18 @@
 :root {
   /* Topographic Map Pattern Background */
   --bg-primary: #ffffff url('topographic_bg.jpg') repeat center center fixed;
-  --bg-secondary: rgba(255, 255, 255, 0.9);
-  --bg-tertiary: rgba(255, 255, 255, 0.95);
+  --bg-secondary: rgba(255, 255, 255, 0.96);
+  --bg-tertiary: rgba(255, 255, 255, 0.98);
   
-  /* High-Contrast Crisp Typography */
-  --text-primary: #1e1b4b;
-  --text-secondary: #475569;
-  --text-tertiary: #64748b;
+  /* High-Contrast Crisp Typography (Deep Slate & Charcoal) */
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-tertiary: #475569;
   
-  /* Tactile 3D Color Palette from photo */
+  /* Tactile 3D Color Palette */
   --teal-primary: #059669;
   --teal-light: #10b981;
-  --orange-primary: #ff6b00;
+  --orange-primary: #ea580c;
   --orange-light: #f97316;
   --violet-primary: #7c3aed;
   --violet-light: #a855f7;
@@ -38,22 +38,21 @@
   --blue-light: #38bdf8;
   
   --accent-primary: #059669;
-  --accent-secondary: #ff6b00;
+  --accent-secondary: #ea580c;
   --accent-tertiary: #7c3aed;
   
-  /* 3D Porcelain Clay Card System */
-  --card-bg: rgba(255, 255, 255, 0.94);
-  --card-border: 2px solid rgba(255, 255, 255, 0.95);
+  /* High-Opacity Card System for Pristine Readability */
+  --card-bg: rgba(255, 255, 255, 0.98);
+  --card-border: 1.5px solid rgba(226, 232, 240, 0.95);
   --card-radius: 28px;
   --card-shadow: 
-    0 25px 60px -15px rgba(51, 65, 85, 0.14),
-    0 12px 25px -8px rgba(124, 58, 237, 0.08),
-    inset 0 2px 4px #ffffff,
-    inset 0 -2px 4px rgba(0, 0, 0, 0.02);
+    0 20px 45px -12px rgba(15, 23, 42, 0.12),
+    0 8px 20px -6px rgba(15, 23, 42, 0.08),
+    inset 0 1px 2px #ffffff;
   --card-shadow-hover: 
-    0 35px 75px -15px rgba(51, 65, 85, 0.22),
-    0 18px 30px -8px rgba(124, 58, 237, 0.14),
-    inset 0 2px 4px #ffffff;
+    0 28px 60px -15px rgba(15, 23, 42, 0.18),
+    0 12px 28px -6px rgba(15, 23, 42, 0.1),
+    inset 0 1px 3px #ffffff;
 }
 
 body.dark-mode {
@@ -289,7 +288,7 @@ body.dark-mode .pearl-splash-backdrop {
 }
 
 /* ========================================= */
-/* 🧭 FLOATING 3D CAPSULE NAVBAR             */
+/* 🧭 PINTEREST CHROMATIC CAPSULE NAVBAR     */
 /* ========================================= */
 .navbar-wrapper {
   position: sticky;
@@ -297,186 +296,233 @@ body.dark-mode .pearl-splash-backdrop {
   z-index: 1000;
   padding: 0 16px;
   margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
 }
 
 .navbar {
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1240px;
   margin: 0 auto;
-  background: var(--bg-secondary);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  padding: 12px 24px;
+  background: rgba(14, 18, 26, 0.88);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  padding: 8px 14px 8px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 50px;
-  border: var(--card-border);
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow: 
-    0 15px 35px -5px rgba(51, 65, 85, 0.12),
-    0 8px 16px -4px rgba(124, 58, 237, 0.06),
-    inset 0 2px 3px #ffffff;
+    0 20px 45px -10px rgba(0, 0, 0, 0.45),
+    0 8px 20px -4px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease;
 }
 
-.logo-container {
+/* 1. Brand Logo with Chromatic Rainbow Iridescent Ring (from Pinterest pin) */
+.nav-brand {
   display: flex;
   align-items: center;
   gap: 10px;
   text-decoration: none;
+  padding: 3px 12px 3px 4px;
+  border-radius: 9999px;
+  transition: all 0.25s ease;
 }
 
-.logo-dot {
-  width: 12px;
-  height: 12px;
+.nav-brand:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.chromatic-ring {
+  position: relative;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #059669, #10b981);
-  box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+  padding: 2.5px;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    #ff3b30,
+    #ff9500,
+    #ffcc00,
+    #34c759,
+    #32ade6,
+    #007aff,
+    #5856d6,
+    #af52de,
+    #ff2d55,
+    #ff3b30
+  );
+  box-shadow: 
+    0 0 14px rgba(255, 149, 0, 0.4),
+    0 0 18px rgba(0, 122, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
 }
 
-.logo {
-  font-weight: 800;
-  font-size: 16px;
-  color: var(--text-primary);
-  line-height: 1.2;
-  letter-spacing: -0.3px;
+.nav-brand:hover .chromatic-ring {
+  transform: scale(1.08) rotate(15deg);
+  box-shadow: 
+    0 0 22px rgba(255, 149, 0, 0.65),
+    0 0 28px rgba(0, 122, 255, 0.6);
 }
 
+.chromatic-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #2a3142 0%, #11141d 90%);
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.35),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.nav-brand-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: #ffffff;
+  letter-spacing: -0.2px;
+  white-space: nowrap;
+}
+
+/* Nav Links Group */
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 3px;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links a {
   text-decoration: none;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.82);
   font-weight: 600;
-  font-size: 13.5px;
-  padding: 8px 14px;
-  border-radius: 20px;
+  font-size: 13px;
+  padding: 7px 12px;
+  border-radius: 9999px;
   transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .nav-links a:hover {
-  background: rgba(5, 150, 105, 0.08);
-  color: var(--teal-primary);
-  transform: translateY(-2px);
-}
-
-body.dark-mode .nav-links a:hover {
-  background: rgba(16, 185, 129, 0.15);
-  color: #34d399;
-}
-
-.nav-hub-btn {
-  background: linear-gradient(135deg, #ffffff, #f1f5f9) !important;
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  color: var(--text-primary) !important;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.nav-hub-btn:hover {
-  background: linear-gradient(135deg, #059669, #10b981) !important;
-  color: #ffffff !important;
-  box-shadow: 0 6px 16px rgba(5, 150, 105, 0.35);
-}
-
-.nav-controls {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.theme-toggle {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  background: linear-gradient(135deg, #ffffff, #f1f5f9);
-  color: var(--text-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.theme-toggle:hover {
-  transform: scale(1.1) rotate(15deg);
-  color: var(--orange-primary);
-}
-
-.nav-contact-btn {
-  background: linear-gradient(135deg, #059669, #10b981);
+  background: rgba(255, 255, 255, 0.12);
   color: #ffffff;
-  padding: 8px 18px;
-  border-radius: 20px;
-  font-size: 13.5px;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 6px 16px rgba(5, 150, 105, 0.35);
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: translateY(-1px);
 }
 
-.nav-contact-btn:hover {
-  background: linear-gradient(135deg, #047857, #34d399);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgba(5, 150, 105, 0.45);
+.nav-links a.active-nav {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25);
 }
 
-.hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  width: 36px;
-  height: 36px;
+/* Mode Nuit et Jour Button */
+.nav-theme-btn {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  padding: 6px 14px 6px 8px;
+  border-radius: 9999px;
+  font-size: 12.5px;
+  font-weight: 600;
   cursor: pointer;
-  background: none;
-  border: none;
-  padding: 4px;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.hamburger span {
-  display: block;
-  width: 100%;
-  height: 3px;
-  background: var(--text-primary);
-  border-radius: 3px;
-  transition: all 0.3s ease;
+.nav-theme-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
 }
 
-/* Mobile Nav Overlay */
-.mobile-nav-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(25px);
-  z-index: 999;
-  flex-direction: column;
+.theme-icon-disc {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  font-size: 12px;
+  color: #fbbf24;
+  transition: transform 0.3s ease;
 }
 
-body.dark-mode .mobile-nav-overlay {
-  background: rgba(15, 23, 42, 0.98);
+.nav-theme-btn:hover .theme-icon-disc {
+  transform: rotate(20deg) scale(1.1);
 }
 
-.mobile-nav-overlay.open {
-  display: flex;
+/* Responsive adaptation: keep all list items on the navbar */
+@media (max-width: 1100px) {
+  .navbar {
+    padding: 6px 10px;
+    gap: 6px;
+  }
+  .nav-links a {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+  .nav-brand-name {
+    font-size: 13px;
+  }
 }
 
-.mobile-nav-overlay a {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--text-primary);
-  text-decoration: none;
-  padding: 8px 20px;
-  border-radius: 12px;
+@media (max-width: 860px) {
+  .navbar-wrapper {
+    padding: 0 8px;
+    top: 8px;
+  }
+  .navbar {
+    padding: 5px 8px;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .navbar::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-brand-name {
+    display: none; /* Keep the chromatic ring icon visible, leaving maximum room for all 7 items on the navbar */
+  }
+  .nav-links {
+    display: flex !important;
+    gap: 2px;
+  }
+  .nav-links a {
+    font-size: 11.5px;
+    padding: 6px 8px;
+  }
+  .nav-theme-btn .theme-label {
+    display: none; /* Show icon disc on small screens so it fits cleanly */
+  }
+  .nav-theme-btn {
+    padding: 4px;
+    border-radius: 50%;
+  }
 }
 
 /* ========================================= */
@@ -837,18 +883,27 @@ section {
   font-size: 28px;
   font-weight: 800;
   text-align: center;
-  color: #ffffff;
-  text-shadow: 0 0 25px rgba(56, 189, 248, 0.45);
+  color: var(--text-primary);
   margin-bottom: 8px;
   letter-spacing: -0.4px;
 }
 
+body.dark-mode .section-title {
+  color: #f8fafc;
+  text-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
+}
+
 .section-subtitle {
   font-size: 15px;
-  color: #cbd5e1;
+  color: var(--text-secondary);
   text-align: center;
   max-width: 650px;
   margin: 0 auto 35px;
+  font-weight: 500;
+}
+
+body.dark-mode .section-subtitle {
+  color: #cbd5e1;
 }
 
 /* ========================================= */
@@ -1720,47 +1775,35 @@ body.dark-mode .pro-footer-bottom {
 <!-- Reading Progress Bar -->
 <div id="reading-progress"></div>
 
-<!-- ================= NAVBAR ================= -->
+<!-- ================= NAVBAR (PINTEREST FLOATING CHROMATIC CAPSULE DOCK) ================= -->
 <div class="navbar-wrapper">
   <nav class="navbar">
-    <a href="index.html" class="logo-container">
-      <div class="logo-dot"></div>
-      <div class="logo">Rolland RANDRIAMANAMPY</div>
+    <!-- 1. Rolland RANDRIAMANAMPY (with chromatic rainbow iridescent ring) -->
+    <a href="index.html" class="nav-brand" title="Rolland RANDRIAMANAMPY">
+      <div class="chromatic-ring">
+        <div class="chromatic-inner">
+          <i class="fas fa-home"></i>
+        </div>
+      </div>
+      <span class="nav-brand-name">Rolland RANDRIAMANAMPY</span>
     </a>
 
+    <!-- 2 à 7. Accueil & Parcours & Projets & Compétences & Centres d'intérêts & Contact -->
     <ul class="nav-links">
-      <li><a href="index.html" class="nav-hub-btn"><i class="fas fa-arrow-left"></i> Liens officiels</a></li>
-      <li><a href="#hero">Accueil</a></li>
+      <li><a href="index.html">Accueil</a></li>
       <li><a href="#parcours">Parcours</a></li>
       <li><a href="#projets">Projets</a></li>
       <li><a href="#competences">Compétences</a></li>
-      <li><a href="#interets">Centres d'intérêt</a></li>
+      <li><a href="#interets">Centres d'intérêts</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
 
-    <div class="nav-controls">
-      <button class="theme-toggle" onclick="toggleTheme()" title="Basculer le thème">
-        <i class="fas fa-moon"></i>
-      </button>
-      <a href="#contact" class="nav-contact-btn">Me contacter</a>
-      <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
+    <!-- 8. Mode nuit et jour -->
+    <button class="nav-theme-btn" onclick="toggleTheme()" title="Basculer le mode nuit et jour" id="navThemeToggleBtn">
+      <span class="theme-icon-disc"><i class="fas fa-moon"></i></span>
+      <span class="theme-label">Mode nuit et jour</span>
+    </button>
   </nav>
-</div>
-
-<!-- Mobile Navigation Overlay -->
-<div class="mobile-nav-overlay" id="mobileNav">
-  <a href="index.html" onclick="closeMobileNav()" style="color: var(--teal-primary);"><i class="fas fa-arrow-left"></i> Retour aux liens officiels</a>
-  <a href="#hero" onclick="closeMobileNav()">Accueil</a>
-  <a href="#parcours" onclick="closeMobileNav()">Parcours</a>
-  <a href="#projets" onclick="closeMobileNav()">Projets & Réalisations</a>
-  <a href="#competences" onclick="closeMobileNav()">Compétences</a>
-  <a href="#interets" onclick="closeMobileNav()">Centres d'Intérêt</a>
-  <a href="#contact" onclick="closeMobileNav()">Contact</a>
 </div>
 
 <!-- ================= HERO ================= -->
@@ -1820,7 +1863,7 @@ body.dark-mode .pro-footer-bottom {
           <div class="metric-icon"><i class="fas fa-map-marker-alt"></i></div>
           <div class="metric-content">
             <h4>Localisation</h4>
-            <p>Ambositra / Antananarivo</p>
+            <p>Tana</p>
           </div>
         </div>
       </div>
@@ -2367,7 +2410,7 @@ body.dark-mode .pro-footer-bottom {
 
     <div class="contact-info-card">
       <div class="card-title"><i class="fas fa-map-marker-alt" style="color:#f87171;"></i> Localisation</div>
-      <div class="card-value">Ambositra & Antananarivo, Madagascar</div>
+      <div class="card-value">Tana</div>
       <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Disponible pour missions sur place ou à distance</div>
     </div>
   </div>
@@ -2395,7 +2438,7 @@ body.dark-mode .pro-footer-bottom {
       <div class="brand-name">Rolland RANDRIAMANAMPY</div>
       <div class="brand-sub">Étudiant en 3ème année de Licence en Management et Développement d'Entreprise • ISCAM Business School</div>
       <div class="brand-meta">
-        <span><i class="fas fa-map-marker-alt"></i> Ambositra & Antananarivo, Madagascar</span>
+        <span><i class="fas fa-map-marker-alt"></i> Tana</span>
         <span><i class="fas fa-envelope"></i> rollandrandria102@gmail.com</span>
         <span><i class="fas fa-phone"></i> +261 34 92 895 56</span>
       </div>
@@ -2420,7 +2463,7 @@ body.dark-mode .pro-footer-bottom {
       <h2 style="font-size: 22px; margin-bottom: 5px; color: var(--text-primary);">Rolland RANDRIAMANAMPY</h2>
       <p style="color: var(--text-secondary); font-size: 14px;">Étudiant en 3ème année de Licence en Management et Développement d'Entreprise (MDE) • ISCAM Business School</p>
       <p style="font-size: 13px; color: var(--text-tertiary); margin-top: 4px;">
-        <i class="fas fa-map-marker-alt"></i> Madagascar • <i class="fas fa-envelope"></i> rollandrandria102@gmail.com • <i class="fas fa-phone"></i> +261 34 92 895 56
+        <i class="fas fa-map-marker-alt"></i> Tana • <i class="fas fa-envelope"></i> rollandrandria102@gmail.com • <i class="fas fa-phone"></i> +261 34 92 895 56
       </p>
     </div>
 
@@ -2502,34 +2545,34 @@ body.dark-mode .pro-footer-bottom {
 function toggleTheme() {
   const body = document.body;
   const isDarkMode = body.classList.contains('dark-mode');
-  const themeToggleBtn = document.querySelector('.theme-toggle i');
+  const themeIcons = document.querySelectorAll('.theme-icon-disc i, .theme-toggle i');
   
   if (isDarkMode) {
     body.classList.remove('dark-mode');
     localStorage.setItem('theme', 'light');
-    if (themeToggleBtn) {
-      themeToggleBtn.classList.remove('fa-sun');
-      themeToggleBtn.classList.add('fa-moon');
-    }
+    themeIcons.forEach(icon => {
+      icon.classList.remove('fa-sun');
+      icon.classList.add('fa-moon');
+    });
   } else {
     body.classList.add('dark-mode');
     localStorage.setItem('theme', 'dark');
-    if (themeToggleBtn) {
-      themeToggleBtn.classList.remove('fa-moon');
-      themeToggleBtn.classList.add('fa-sun');
-    }
+    themeIcons.forEach(icon => {
+      icon.classList.remove('fa-moon');
+      icon.classList.add('fa-sun');
+    });
   }
 }
 
 window.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('theme');
-  const themeToggleBtn = document.querySelector('.theme-toggle i');
+  const themeIcons = document.querySelectorAll('.theme-icon-disc i, .theme-toggle i');
   if (savedTheme === 'dark') {
     document.body.classList.add('dark-mode');
-    if (themeToggleBtn) {
-      themeToggleBtn.classList.remove('fa-moon');
-      themeToggleBtn.classList.add('fa-sun');
-    }
+    themeIcons.forEach(icon => {
+      icon.classList.remove('fa-moon');
+      icon.classList.add('fa-sun');
+    });
   }
 });
 
@@ -2673,24 +2716,6 @@ function filterCompetences(category, btnEl) {
 
   document.querySelectorAll('.comp-filter-btn').forEach(btn => btn.classList.remove('active'));
   if (btnEl) btnEl.classList.add('active');
-}
-
-// ============ HAMBURGER MENU ============
-const hamburgerBtn = document.getElementById('hamburgerBtn');
-const mobileNav = document.getElementById('mobileNav');
-
-if (hamburgerBtn && mobileNav) {
-  hamburgerBtn.addEventListener('click', function() {
-    this.classList.toggle('open');
-    mobileNav.classList.toggle('open');
-    document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
-  });
-}
-
-function closeMobileNav() {
-  if (hamburgerBtn) hamburgerBtn.classList.remove('open');
-  if (mobileNav) mobileNav.classList.remove('open');
-  document.body.style.overflow = '';
 }
 
 // ============ COPY CONTACT ============
