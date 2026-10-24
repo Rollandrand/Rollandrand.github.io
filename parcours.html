@@ -17,8 +17,8 @@
    🫧 3D CLAYMORPHIC / GLASSMORPHIC DESIGN SYSTEM (INSPIRED BY GLASS.JFIF)
    ========================================================================== */
 :root {
-  /* 🪐 Space Theme from reference image */
-  --bg-primary: #03050b;
+  /* Topographic Map Pattern Background */
+  --bg-primary: #ffffff url('topographic_bg.jpg') repeat center center fixed;
   --bg-secondary: rgba(255, 255, 255, 0.9);
   --bg-tertiary: rgba(255, 255, 255, 0.95);
   
@@ -58,9 +58,8 @@
 
 body.dark-mode {
   --bg-primary: 
-    radial-gradient(ellipse 65% 50% at 50% 100%, rgba(124, 58, 237, 0.3) 0%, transparent 70%),
-    radial-gradient(circle at 15% 15%, rgba(249, 115, 22, 0.2) 0%, transparent 45%),
-    linear-gradient(160deg, #0b0f19 0%, #111827 50%, #1e1b4b 100%);
+    linear-gradient(rgba(11, 15, 25, 0.94), rgba(11, 15, 25, 0.94)),
+    url('topographic_bg.jpg') repeat center center fixed;
   --bg-secondary: rgba(17, 24, 39, 0.92);
   --bg-tertiary: rgba(30, 41, 59, 0.92);
   --text-primary: #f8fafc;
@@ -75,16 +74,6 @@ body.dark-mode {
   --card-shadow-hover: 
     0 35px 75px -15px rgba(0, 0, 0, 0.65),
     inset 0 1px 3px rgba(255, 255, 255, 0.2);
-}
-
-#space-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-  pointer-events: none;
 }
 
 html {
@@ -102,6 +91,7 @@ html {
 body {
   background: var(--bg-primary);
   background-attachment: fixed;
+  background-size: 700px auto;
   color: var(--text-primary);
   overflow-x: hidden;
   min-height: 100vh;
@@ -1718,9 +1708,6 @@ body.dark-mode .pro-footer-bottom {
 
 <body>
 
-<!-- 🪐 3D Space Particle Canvas (2026 Inspiration) -->
-<canvas id="space-canvas"></canvas>
-
 <!-- 🫧 Suspended Glass & Emerald Bubbles (Glass.jfif style) -->
 <div class="bubble-scene">
   <div class="bubble bubble-emerald-large"></div>
@@ -2751,9 +2738,6 @@ function scriptEmail() {
   window.location.href = 'mailto:' + email + '?subject=' + encodeURIComponent(subject);
 }
 </script>
-
-<!-- 🪐 3D Space Particle Engine -->
-<script src="space-particles.js"></script>
 
 </body>
 </html>
